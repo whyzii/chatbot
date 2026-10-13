@@ -346,5 +346,17 @@
     "summary": "Amazon now has more than 1 million robots working in its warehouses. The robots help move items quickly and reduce the most dangerous tasks for human workers. The company is also building new factories to make even more robots, while still employing over 1.5 million people worldwide.",
     "title": "Amazon Deploys Over 1 Million Robots, Changing the Future of Human Work",
     "why_it_matters": "Automation is reshaping jobs in big companies. Knowing how Amazon balances robots and people helps us understand the future of work and the need for new skills."
+  },
+  {
+    "category": "Industry and funding",
+    "decision": "publish",
+    "published": "2026-10-12T17:52:36+00:00",
+    "reason": "The article reports real events about attacks on data centers and their impact on Russia's digital infrastructure.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/gadgets/2026/10/russia-was-not-ready-for-the-data-center-war-it-started-with-ukraine/",
+    "status": "reported",
+    "summary": "Russia launched drone attacks on Ukrainian data centers and telecoms, then Ukraine struck back at Yandex data centers, causing widespread outages. The attacks show Russia was unprepared for a data‑center war.",
+    "title": "Russia’s data centers hit by Ukrainian strikes, exposing weak defenses",
+    "why_it_matters": "It highlights how attacks on data centers can cripple a country’s digital economy and shows the vulnerability of centralized infrastructure."
   }
 ]
