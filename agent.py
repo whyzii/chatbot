@@ -25,7 +25,7 @@ from tools import TOOL_FUNCTIONS, TOOL_SCHEMAS, get_latest_items, get_recent_pub
 MAX_STORIES = 5            # at most this many stories per run
 MAX_STEPS_PER_STORY = 6    # fetch, save, final sentence, plus room for one retry
 MAX_BAD_CALLS = 3          # invalid tool calls tolerated per conversation
-HEADLINE_DAYS = 1          # how far back to look for headlines
+HEADLINE_DAYS = 2         # how far back to look for headlines
 
 # The writer only needs these two tools
 WRITER_TOOLS = [schema for schema in TOOL_SCHEMAS

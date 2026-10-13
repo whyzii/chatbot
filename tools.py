@@ -27,6 +27,7 @@ def get_latest_items(days: int = 7, max_items: int = 20) -> list[dict]:
     items = []
     for source, url in FEEDS.items():
         feed = feedparser.parse(url)
+        print(f"{source}: {len(feed.entries)} entries")
         for entry in feed.entries:
             parsed = entry.get("published_parsed") or entry.get("updated_parsed")
             if not parsed:
