@@ -358,5 +358,17 @@
     "summary": "Russia launched drone attacks on Ukrainian data centers and telecoms, then Ukraine struck back at Yandex data centers, causing widespread outages. The attacks show Russia was unprepared for a data‑center war.",
     "title": "Russia’s data centers hit by Ukrainian strikes, exposing weak defenses",
     "why_it_matters": "It highlights how attacks on data centers can cripple a country’s digital economy and shows the vulnerability of centralized infrastructure."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-13T16:01:58+00:00",
+    "reason": "Official announcement of a new AI model for robotics",
+    "source": "Google DeepMind",
+    "source_url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
+    "status": "official",
+    "summary": "DeepMind announced Gemini 4 Argon, a new AI model that can understand and solve physical problems in 3D environments. It scored 87% on the Embodied Reasoning benchmark, beating other models. Argon can control robots like Boston Dynamics Spot and robotic arms to perform tasks such as picking up cans and arranging objects.",
+    "title": "DeepMind releases Gemini 4 Argon, a new robotics AI model",
+    "why_it_matters": "The model can make robots smarter and more reliable, which could speed up automation in factories, homes, and other settings."
   }
 ]
