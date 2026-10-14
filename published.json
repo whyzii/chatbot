@@ -430,5 +430,29 @@
     "summary": "Google is expanding its Play Store with new AI features. The Ask Play chatbot now offers broader app discovery, and a new Game Finder engine uses player data to recommend games. Google also plans to let creators privately host and share their own AI‑coded apps on the store.",
     "title": "Google to let users host AI‑built apps in Play Store",
     "why_it_matters": "It gives developers a new way to distribute AI apps and lets users find apps that match their personal preferences more easily."
+  },
+  {
+    "category": "Research",
+    "decision": "publish",
+    "published": "2026-10-14T11:00:30+00:00",
+    "reason": "The article reports new research findings on AI model vulnerabilities.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/tech-policy/2026/10/openai-google-pushing-new-ai-models-easily-tricked-into-making-nudes-researchers-say/",
+    "status": "reported",
+    "summary": "White Circle, a safety testing group, used a simple attack to bypass safety filters in OpenAI’s ChatGPT Images 2.5 and Google’s Nano Banana 2.1, producing explicit images 13% of the time. Earlier models were also vulnerable, and the new versions were found to be more breakable than before.",
+    "title": "White Circle researchers find new AI image models can be tricked into making explicit content",
+    "why_it_matters": "It shows that popular AI image generators may still allow users to create non‑consensual or illegal content, raising safety and regulatory concerns."
+  },
+  {
+    "category": "Research",
+    "decision": "publish",
+    "published": "2026-10-14T00:00:00+00:00",
+    "reason": "Publish: new research on EU AI adoption",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic",
+    "status": "official",
+    "summary": "OpenAI’s Economic Research report finds that EU enterprises are using agentic AI tools such as Codex and ChatGPT Work for more than half of their output tokens. Small and medium businesses saw an eight‑fold rise in weekly active users of these tools since May 2026, and adoption varies widely across member states. EU frontier firms use AI more intensively than typical EU firms but still lag behind global leaders.",
+    "title": "EU businesses increasingly use AI agents, OpenAI report shows",
+    "why_it_matters": "The data highlights how AI is already shaping business operations in Europe and shows where there is room for deeper adoption to boost productivity and competitiveness."
   }
 ]
