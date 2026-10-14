@@ -370,5 +370,65 @@
     "summary": "DeepMind announced Gemini 4 Argon, a new AI model that can understand and solve physical problems in 3D environments. It scored 87% on the Embodied Reasoning benchmark, beating other models. Argon can control robots like Boston Dynamics Spot and robotic arms to perform tasks such as picking up cans and arranging objects.",
     "title": "DeepMind releases Gemini 4 Argon, a new robotics AI model",
     "why_it_matters": "The model can make robots smarter and more reliable, which could speed up automation in factories, homes, and other settings."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-14T02:00:14+00:00",
+    "reason": "Official announcement of a new on-device scam detection tool",
+    "source": "Google DeepMind",
+    "source_url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+    "status": "official",
+    "summary": "DeepMind and Singapore’s GovTech announced an on-device scam detection model that runs on smartphones. The model, fine‑tuned from the Gemma architecture, analyses local scam conversations and warns users in real time before they share money or credentials. It is trained on anonymised local scam data and operates entirely on the device to preserve privacy.",
+    "title": "DeepMind releases on-device scam detection model for Singapore",
+    "why_it_matters": "It lets Singapore citizens spot scams without sending messages to the cloud, protecting privacy while reducing financial losses. The approach shows how AI can be safely integrated into everyday messaging."
+  },
+  {
+    "category": "Industry and funding",
+    "decision": "publish",
+    "published": "2026-10-13T18:23:33+00:00",
+    "reason": "Real business deal reported by a reputable source",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/tech-policy/2026/10/disney-offers-20m-for-character-ais-scandal-plagued-chatbot-tech/",
+    "status": "reported",
+    "summary": "Disney has offered $20 million for a non‑exclusive perpetual license of certain intellectual property from Character.AI, the chatbot company that faced criticism for using Disney characters and content. The offer comes after Disney had previously sued Character.AI for copyright infringement and after hiring a former Character.AI executive as its chief technology officer.",
+    "title": "Disney offers $20M to buy Character.AI technology",
+    "why_it_matters": "The deal shows Disney’s continued push into AI, potentially bringing new AI‑powered products to its audience and affecting how copyrighted characters are used in chatbots. It also signals a shift in the AI industry as big media firms seek to acquire or license chatbot technology."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-13T17:05:48+00:00",
+    "reason": "It announces a new model with performance and deployment details",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b",
+    "status": "official",
+    "summary": "LiquidAI announced LFM2.5‑24B‑A2B, a 24‑billion‑parameter model that uses only 2 billion active parameters per token. It outperforms larger MoE models on tool‑use and instruction‑following benchmarks and can run at 184 tokens per second on an Apple M5 Max and 21 k tokens per second on a single NVIDIA B300 GPU. The model is built for private, on‑device agents that need fast reasoning.",
+    "title": "LiquidAI releases LFM2.5‑24B‑A2B, a fast on‑device reasoning agent",
+    "why_it_matters": "Developers can deploy powerful reasoning agents on consumer hardware without sending data to the cloud, improving privacy and reducing latency. The speed and small active‑parameter count make it practical for edge applications."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-13T12:00:00+00:00",
+    "reason": "New product feature announced by Higgsfield AI",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/higgsfield-longer-videos-voice",
+    "status": "official",
+    "summary": "Higgsfield AI said its new GPT‑6 Astra model and GPT‑Image‑2.5 let creators make videos over 10 minutes long, up from about one minute before. The models automate repetitive tasks, keep visual consistency, and support voice‑driven creation. The company shows examples on its YouTube channel and highlights use for education and small‑business marketing.",
+    "title": "Higgsfield AI extends video length beyond 10 minutes with new GPT‑6 Astra model",
+    "why_it_matters": "Longer AI‑generated videos let small teams and educators produce professional‑quality content without large budgets, expanding creative possibilities."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-13T17:00:39+00:00",
+    "reason": "Google announced new Play Store features, including hosting user‑built AI apps.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/google/2026/10/google-wants-to-host-your-personal-vibe-coded-apps-in-the-play-store/",
+    "status": "official",
+    "summary": "Google is expanding its Play Store with new AI features. The Ask Play chatbot now offers broader app discovery, and a new Game Finder engine uses player data to recommend games. Google also plans to let creators privately host and share their own AI‑coded apps on the store.",
+    "title": "Google to let users host AI‑built apps in Play Store",
+    "why_it_matters": "It gives developers a new way to distribute AI apps and lets users find apps that match their personal preferences more easily."
   }
 ]
