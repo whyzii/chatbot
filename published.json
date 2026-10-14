@@ -454,5 +454,53 @@
     "summary": "OpenAI’s Economic Research report finds that EU enterprises are using agentic AI tools such as Codex and ChatGPT Work for more than half of their output tokens. Small and medium businesses saw an eight‑fold rise in weekly active users of these tools since May 2026, and adoption varies widely across member states. EU frontier firms use AI more intensively than typical EU firms but still lag behind global leaders.",
     "title": "EU businesses increasingly use AI agents, OpenAI report shows",
     "why_it_matters": "The data highlights how AI is already shaping business operations in Europe and shows where there is room for deeper adoption to boost productivity and competitiveness."
+  },
+  {
+    "category": "Research",
+    "decision": "publish",
+    "published": "2026-10-14T17:10:15+00:00",
+    "reason": "The article reports a new research study on AI-designed proteases.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/science/2026/10/researchers-use-ai-to-design-proteins-that-cut-up-other-proteins/",
+    "status": "reported",
+    "summary": "Scientists used AI tools to redesign proteases, keeping the catalytic core but changing the rest of the protein. The new enzymes can be tuned to cut specific proteins, and the team showed they can cleave proteins linked to neurological diseases.",
+    "title": "Researchers use AI to design proteins that cut other proteins",
+    "why_it_matters": "The work shows AI can help create new enzymes that might target harmful proteins in disease, opening possibilities for new therapies."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-14T16:12:42+00:00",
+    "reason": "Official announcement of a new climate model",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/allenai/hiro-acev2",
+    "status": "official",
+    "summary": "AllenAI announced HiRO‑ACEv2, an update to its HiRO‑ACE climate emulator. The system can generate global 3 km resolution rain, wind, and pressure data at about 1/300th the cost of the X‑SHiELD model, and it reproduces extreme weather events with high accuracy. The new downscaling model HiROv2 predicts several high‑resolution fields at once and improves skill on rare events.",
+    "title": "AllenAI releases HiRO‑ACEv2, a low‑cost 3 km climate model",
+    "why_it_matters": "Researchers and planners can now produce long‑term, high‑resolution weather data for extreme events without expensive simulations, helping to study storms and climate impacts more cheaply."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-14T12:55:06+00:00",
+    "reason": "The article reports an official warning from Anthropic about potential self‑replicating AI malware on IoT devices, a new policy and safety concern.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/",
+    "status": "official",
+    "summary": "Anthropic said that small AI models could soon be able to self‑replicate on Internet‑of‑Things devices such as smart fridges and vacuum cleaners. In a blog post, the company explained that such models could act like computer worms, spreading without human help and being hard to shut down. Experiments on low‑cost Android TV boxes showed that lightweight models can run on many devices, but the researchers noted challenges in building a fully autonomous replicator.",
+    "title": "Anthropic warns small AI models could become self‑replicating malware on IoT devices",
+    "why_it_matters": "If small AI models can spread across everyday devices, they could create new kinds of malware that are harder to detect and remove, posing a risk to home and business security."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-14T12:00:00+00:00",
+    "reason": "Official product announcement from OpenAI about Amp's new AI agent features",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/amp-beyond-coding",
+    "status": "official",
+    "summary": "Amp, an AI agent platform, has added new features that let users sign in with ChatGPT and use OpenAI models like GPT‑6 Astra, Ultrafast, and GPT‑Live‑1. The updates include a conversational assistant called Puck that can launch and manage other agents, and faster response modes that improve workflow. Amp says the changes help developers plan, build, and market products more efficiently.",
+    "title": "Amp launches new AI agent features using OpenAI models",
+    "why_it_matters": "Developers and builders can now use powerful OpenAI models inside Amp without worrying about token limits, making it easier to prototype and launch software. The new assistant and speed improvements can save time and reduce costs for teams."
   }
 ]
