@@ -502,5 +502,24 @@
     "summary": "Amp, an AI agent platform, has added new features that let users sign in with ChatGPT and use OpenAI models like GPT‑6 Astra, Ultrafast, and GPT‑Live‑1. The updates include a conversational assistant called Puck that can launch and manage other agents, and faster response modes that improve workflow. Amp says the changes help developers plan, build, and market products more efficiently.",
     "title": "Amp launches new AI agent features using OpenAI models",
     "why_it_matters": "Developers and builders can now use powerful OpenAI models inside Amp without worrying about token limits, making it easier to prototype and launch software. The new assistant and speed improvements can save time and reduce costs for teams."
+  },
+  {
+    "decision": "needs_review",
+    "reason": "Article could not be fetched",
+    "source": "Google DeepMind",
+    "source_url": "https://deepmind.google/blog/on-device-ai-scam detection-mddi/",
+    "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection"
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-14T12:00:00+00:00",
+    "reason": "The article reports a new product feature that speeds up malware analysis.",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/sentinelone",
+    "status": "official",
+    "summary": "SentinelOne now uses OpenAI Daybreak to reverse engineer malware in about eight hours, down from 4–6 weeks. This lets researchers investigate more threats and find connections between malware samples.",
+    "title": "SentinelOne cuts malware analysis time from weeks to hours using OpenAI Daybreak",
+    "why_it_matters": "Faster analysis helps security teams detect and respond to threats faster, improving protection for users and businesses."
   }
 ]
