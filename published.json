@@ -545,5 +545,17 @@
     "summary": "DeepMind has launched Gemini 4 Argon, a new AI model that can tackle complex tasks in coding, finance, legal, cybersecurity, and science. The model was tested with trusted cyber defenders and found a critical bug in hospital software, and with Google’s own teams it patched vulnerabilities in internal and open‑source code. To prevent misuse, DeepMind added three layers of real‑time protection and a safety framework that screens requests, monitors internal signals, and cuts off harmful responses.",
     "title": "DeepMind releases Gemini 4 Argon with safety safeguards",
     "why_it_matters": "The model can help find and fix software bugs that protect patient data and secure systems, but its advanced power also requires careful safeguards to stop malicious use."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-14T07:00:00+00:00",
+    "reason": "Official announcement of Block using OpenAI Daybreak for security",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/block-ai-powered-security",
+    "status": "official",
+    "summary": "Block, the company behind Square and Cash App, has integrated OpenAI’s Daybreak AI into its security operations. The system can review detection changes in under an hour, generate patches in 18 minutes, and increase triage throughput by 50%. It also helps find complex attack chains that traditional tools miss.",
+    "title": "Block uses OpenAI Daybreak to speed up security work",
+    "why_it_matters": "Faster AI‑driven security lets companies fix vulnerabilities before attackers do, protecting users’ data and money. It shows how AI can help defenders keep up with fast‑moving threats."
   }
 ]

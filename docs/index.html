@@ -8,22 +8,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
 <style>
   :root {
     --paper: #ffffff; --ink: #14161a; --muted: #5b616e; --rule: #e2e4e8;
-    --link: #1d4ed8; --soft: #f4f5f7;
+    --link: #1d4ed8; --soft: #f4f5f7; --card: #ffffff;
     --serif: "Newsreader", Georgia, serif;
     --sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root { --paper: #121418; --ink: #eceef1; --muted: #9aa1ad; --rule: #2a2e35;
-            --link: #8fb2ff; --soft: #1b1e24; }
+            --link: #8fb2ff; --soft: #1b1e24; --card: #171a1f; }
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans);
          font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  @media (max-width: 520px) { .wrap { padding: 0 16px; } }
 
   /* masthead */
   .masthead { border-bottom: 1px solid var(--rule); }
@@ -32,26 +34,35 @@
   .brand { font-family: var(--serif); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.8rem);
            letter-spacing: -0.02em; line-height: 1; margin: 0; }
   .tagline { color: var(--muted); font-size: .95rem; margin: 0; }
-  nav { border-bottom: 1px solid var(--rule); }
-  nav .wrap { display: flex; gap: 22px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px;
-              font-size: .9rem; font-weight: 500; white-space: nowrap; }
-  nav a { color: var(--muted); display: inline-flex; align-items: center; gap: 8px; }
-  nav a:hover { color: var(--ink); }
+
+  /* filter bar: stays at the top while scrolling */
+  .filters { position: sticky; top: 0; z-index: 10; background: var(--paper);
+             border-bottom: 1px solid var(--rule); }
+  .filters .wrap { display: flex; gap: 8px; overflow-x: auto; padding-top: 10px; padding-bottom: 10px;
+                   scrollbar-width: none; }
+  .filters .wrap::-webkit-scrollbar { display: none; }
+  .chip { flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+          font: 500 .88rem var(--sans); color: var(--muted); background: transparent;
+          border: 1px solid var(--rule); border-radius: 999px; padding: 6px 14px; white-space: nowrap; }
+  .chip:hover { color: var(--ink); border-color: var(--muted); }
+  .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .chip .count { font-size: .78rem; opacity: .7; }
+  html:not(.js) .filters { display: none; }
   .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
 
   /* top: lead story + latest column */
   .top { display: grid; grid-template-columns: 1fr; gap: 36px; padding: 36px 0 44px;
          border-bottom: 1px solid var(--rule); }
   @media (min-width: 860px) { .top { grid-template-columns: 2fr 1fr; gap: 48px; } }
-  .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 600; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: .82rem; font-weight: 600; }
   .lead h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(2rem, 4.6vw, 3.3rem);
              line-height: 1.08; letter-spacing: -0.02em; margin: 14px 0 18px; max-width: 22ch; }
   .lead h2 a:hover { color: var(--link); }
-  .lead .summary { font-family: var(--serif); font-size: 1.3rem; line-height: 1.5; margin: 0 0 18px; max-width: 38em; }
+  .lead .summary { font-family: var(--serif); font-size: 1.25rem; line-height: 1.5; margin: 0 0 18px; max-width: 38em; }
   .why { background: var(--soft); border-left: 3px solid var(--accent, var(--muted));
          padding: 12px 16px; margin: 0 0 18px; max-width: 38em; }
   .why strong { font-weight: 600; }
-  .byline { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; color: var(--muted); font-size: .88rem; }
+  .byline { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; color: var(--muted); font-size: .86rem; }
   .byline .source { color: var(--ink); font-weight: 500; }
   .read { color: var(--link); font-weight: 500; }
   .read:hover { text-decoration: underline; }
@@ -61,31 +72,52 @@
   .latest li { padding: 14px 0; border-bottom: 1px solid var(--rule); }
   .latest li a { font-family: var(--serif); font-size: 1.12rem; font-weight: 600; line-height: 1.3; display: block; margin: 6px 0; }
   .latest li a:hover { color: var(--link); }
-  .small { font-size: .8rem; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .small { font-size: .8rem; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 
   /* status labels: how confirmed the news is */
-  .status { font-size: .75rem; font-weight: 500; padding: 1px 8px; border-radius: 4px; }
+  .status { font-size: .72rem; font-weight: 500; padding: 1px 8px; border-radius: 4px; }
   .status.official { background: var(--ink); color: var(--paper); }
   .status.reported { border: 1px solid var(--muted); color: var(--muted); }
   .status.rumor { border: 1px dashed #b45309; color: #b45309; }
 
-  /* category sections: each category is one column of stories */
-  .sections { display: grid; grid-template-columns: 1fr; gap: 40px 40px; padding: 40px 0 16px;
-              border-bottom: 1px solid var(--rule); }
-  @media (min-width: 700px) { .sections { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1000px) { .sections { grid-template-columns: repeat(3, 1fr); } }
-  section.category { border-top: 3px solid var(--color); padding-top: 12px; }
-  section.category > h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 4px; }
-  .story { padding: 14px 0 16px; border-bottom: 1px solid var(--rule); }
-  .story:last-child { border-bottom: 0; }
-  .story h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; line-height: 1.25; margin: 8px 0 8px; }
-  .story h3 a:hover { color: var(--link); }
-  .story p { margin: 0 0 10px; color: var(--muted); }
+  /* the feed: stories grouped by day, as a grid of compact cards */
+  .feed { padding: 8px 0 24px; }
+  .day h2 { font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+            color: var(--muted); margin: 32px 0 14px; display: flex; align-items: center; gap: 12px; }
+  .day h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
 
-  footer { padding: 36px 0 56px; color: var(--muted); font-size: .9rem; }
+  .card { background: var(--card); border: 1px solid var(--rule); border-top: 3px solid var(--color);
+          border-radius: 8px; padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+  .card h3 { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; line-height: 1.25; margin: 0; }
+  .card h3 a:hover { color: var(--link); }
+  .card .gist { margin: 0; color: var(--muted); font-size: .93rem;
+                display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .card details { font-size: .93rem; }
+  .card summary { cursor: pointer; color: var(--link); font-weight: 500; font-size: .85rem; list-style: none; }
+  .card summary::-webkit-details-marker { display: none; }
+  .card summary::before { content: "+ "; }
+  .card details[open] summary::before { content: "− "; }
+  .card details p { margin: 8px 0 0; }
+  .card .byline { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--rule); font-size: .8rem; }
+  .card .byline .read { margin-left: auto; }
+
+  /* hidden by the filter or by "show more" (only when JavaScript runs) */
+  .js .is-hidden { display: none !important; }
+
+  .more-row { text-align: center; padding: 8px 0 40px; }
+  .more { font: 500 .92rem var(--sans); color: var(--ink); background: var(--soft); cursor: pointer;
+          border: 1px solid var(--rule); border-radius: 999px; padding: 10px 22px; }
+  .more:hover { border-color: var(--muted); }
+  html:not(.js) .more-row { display: none; }
+  .empty { color: var(--muted); padding: 32px 0; }
+
+  footer { border-top: 1px solid var(--rule); padding: 36px 0 56px; color: var(--muted); font-size: .9rem; }
   footer p { max-width: 42em; margin: 0 0 8px; }
 
-  a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -95,281 +127,481 @@
     <p class="tagline">The important AI news in plain English. Updated Thursday 15 October 2026.</p>
   </div>
 </header>
-<nav aria-label="Sections"><div class="wrap"><a href="#new-models"><span class="dot" style="background:#2563eb"></span>New models</a><a href="#research"><span class="dot" style="background:#7c3aed"></span>Research</a><a href="#tools-and-products"><span class="dot" style="background:#0f766e"></span>Tools and products</a><a href="#industry-and-funding"><span class="dot" style="background:#c2410c"></span>Industry and funding</a><a href="#policy-and-safety"><span class="dot" style="background:#475569"></span>Policy and safety</a></div></nav>
+<nav class="filters" aria-label="Filter by category"><div class="wrap"><button class="chip" type="button" data-filter="all" aria-pressed="true">All <span class="count">46</span></button><button class="chip" type="button" data-filter="New models" aria-pressed="false"><span class="dot" style="background:#2563eb"></span>New models <span class="count">10</span></button><button class="chip" type="button" data-filter="Research" aria-pressed="false"><span class="dot" style="background:#7c3aed"></span>Research <span class="count">6</span></button><button class="chip" type="button" data-filter="Tools and products" aria-pressed="false"><span class="dot" style="background:#0f766e"></span>Tools and products <span class="count">16</span></button><button class="chip" type="button" data-filter="Industry and funding" aria-pressed="false"><span class="dot" style="background:#c2410c"></span>Industry and funding <span class="count">6</span></button><button class="chip" type="button" data-filter="Policy and safety" aria-pressed="false"><span class="dot" style="background:#64748b"></span>Policy and safety <span class="count">8</span></button></div></nav>
 <main class="wrap">
-  <div class="top">
+  <div class="top" id="top">
     <article class="lead">
-      <span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span>
+      <div class="small"><span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span><span class="status reported">Reported</span></div>
       <h2><a href="https://arstechnica.com/science/2026/10/researchers-use-ai-to-design-proteins-that-cut-up-other-proteins/" target="_blank" rel="noopener">Researchers use AI to design proteins that cut other proteins</a></h2>
       <p class="summary">Scientists used AI tools to redesign proteases, keeping the catalytic core but changing the rest of the protein. The new enzymes can be tuned to cut specific proteins, and the team showed they can cleave proteins linked to neurological diseases.</p>
       <p class="why" style="--accent:#7c3aed"><strong>Why it matters:</strong> The work shows AI can help create new enzymes that might target harmful proteins in disease, opening possibilities for new therapies.</p>
-      <div class="byline"><span class="source">Ars Technica</span><span>14 Oct 2026</span><span class="status reported">Reported</span><a class="read" href="https://arstechnica.com/science/2026/10/researchers-use-ai-to-design-proteins-that-cut-up-other-proteins/" target="_blank" rel="noopener">Read the original article</a></div>
-    </article><aside class="latest" aria-label="Latest stories"><h3>Latest</h3><ol><li><span class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span></span><a href="https://huggingface.co/blog/allenai/hiro-acev2" target="_blank" rel="noopener">AllenAI releases HiRO‑ACEv2, a low‑cost 3 km climate model</a><span class="small">Hugging Face 14 Oct 2026</span></li><li><span class="small"><span class="kicker"><span class="dot" style="background:#475569"></span>Policy and safety</span></span><a href="https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/" target="_blank" rel="noopener">Anthropic warns small AI models could become self‑replicating malware on IoT devices</a><span class="small">Ars Technica 14 Oct 2026</span></li><li><span class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span></span><a href="https://openai.com/index/amp-beyond-coding" target="_blank" rel="noopener">Amp launches new AI agent features using OpenAI models</a><span class="small">OpenAI 14 Oct 2026</span></li><li><span class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span></span><a href="https://openai.com/index/sentinelone" target="_blank" rel="noopener">SentinelOne cuts malware analysis time from weeks to hours using OpenAI Daybreak</a><span class="small">OpenAI 14 Oct 2026</span></li><li><span class="small"><span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span></span><a href="https://arstechnica.com/tech-policy/2026/10/openai-google-pushing-new-ai-models-easily-tricked-into-making-nudes-researchers-say/" target="_blank" rel="noopener">White Circle researchers find new AI image models can be tricked into making explicit content</a><span class="small">Ars Technica 14 Oct 2026</span></li></ol></aside></div>
-  <div class="sections"><section class="category" id="new-models" style="--color:#2563eb"><h2>New models</h2>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>14 Oct 2026</span></div>
-        <h3><a href="https://huggingface.co/blog/allenai/hiro-acev2" target="_blank" rel="noopener">AllenAI releases HiRO‑ACEv2, a low‑cost 3 km climate model</a></h3>
-        <p>AllenAI announced HiRO‑ACEv2, an update to its HiRO‑ACE climate emulator. The system can generate global 3 km resolution rain, wind, and pressure data at about 1/300th the cost of the X‑SHiELD model, and it reproduces extreme weather events with high accuracy. The new downscaling model HiROv2 predicts several high‑resolution fields at once and improves skill on rare events.</p>
-        <div class="byline"><span class="source">Hugging Face</span><a class="read" href="https://huggingface.co/blog/allenai/hiro-acev2" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>13 Oct 2026</span></div>
-        <h3><a href="https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/" target="_blank" rel="noopener">DeepMind releases Gemini 4 Argon with safety safeguards</a></h3>
-        <p>DeepMind has launched Gemini 4 Argon, a new AI model that can tackle complex tasks in coding, finance, legal, cybersecurity, and science. The model was tested with trusted cyber defenders and found a critical bug in hospital software, and with Google’s own teams it patched vulnerabilities in internal and open‑source code. To prevent misuse, DeepMind added three layers of real‑time protection and a safety framework that screens requests, monitors internal signals, and cuts off harmful responses.</p>
-        <div class="byline"><span class="source">Google DeepMind</span><a class="read" href="https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>13 Oct 2026</span></div>
-        <h3><a href="https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b" target="_blank" rel="noopener">LiquidAI releases LFM2.5‑24B‑A2B, a fast on‑device reasoning agent</a></h3>
-        <p>LiquidAI announced LFM2.5‑24B‑A2B, a 24‑billion‑parameter model that uses only 2 billion active parameters per token. It outperforms larger MoE models on tool‑use and instruction‑following benchmarks and can run at 184 tokens per second on an Apple M5 Max and 21 k tokens per second on a single NVIDIA B300 GPU. The model is built for private, on‑device agents that need fast reasoning.</p>
-        <div class="byline"><span class="source">Hugging Face</span><a class="read" href="https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>13 Oct 2026</span></div>
-        <h3><a href="https://deepmind.google/blog/gemini-4-argon-for-robotics/" target="_blank" rel="noopener">DeepMind releases Gemini 4 Argon, a new robotics AI model</a></h3>
-        <p>DeepMind announced Gemini 4 Argon, a new AI model that can understand and solve physical problems in 3D environments. It scored 87% on the Embodied Reasoning benchmark, beating other models. Argon can control robots like Boston Dynamics Spot and robotic arms to perform tasks such as picking up cans and arranging objects.</p>
-        <div class="byline"><span class="source">Google DeepMind</span><a class="read" href="https://deepmind.google/blog/gemini-4-argon-for-robotics/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>7 Oct 2026</span></div>
-        <h3><a href="https://huggingface.co/blog/LiquidAI/open-d1" target="_blank" rel="noopener">LiquidAI releases lightweight multimodal decision models for edge devices</a></h3>
-        <p>LiquidAI announced two new decision models: d1-3B, a 3‑billion‑parameter model that handles text and images, and d1-omni‑600M, a 600‑million‑parameter model that supports text+image or text+audio. Both models are built from Liquid Foundation Models and deliver fast inference on edge hardware, answering a question in under 50 ms on Jetson devices. They outperform larger Decider models on several public benchmarks.</p>
-        <div class="byline"><span class="source">Hugging Face</span><a class="read" href="https://huggingface.co/blog/LiquidAI/open-d1" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>7 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/ai/2026/10/mistral-says-le-chonk-can-challenge-the-best-ai-models/" target="_blank" rel="noopener">Mistral releases 1‑trillion‑parameter model &quot;Le Chonk&quot; that can rival top AI models</a></h3>
-        <p>French AI company Mistral has launched Le Chonk, a 1‑trillion‑parameter model that it says can compete with the best models from the US and China. The model is free, open‑weight, and optimized for coding, cyberdefense, and industry tasks. It is available in preview now, with a final version expected by month‑end.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/ai/2026/10/mistral-says-le-chonk-can-challenge-the-best-ai-models/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>7 Oct 2026</span></div>
-        <h3><a href="https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026" target="_blank" rel="noopener">Nemotron model wins gold at IOI and IMO competitions</a></h3>
-        <p>NVIDIA and Hugging Face fine‑tuned Nemotron 3 to achieve gold‑level scores at the International Olympiad in Informatics and the International Mathematical Olympiad. The specialized models used supervised fine‑tuning, reinforcement learning, and a generate‑evaluate‑refine loop. They proved that a single foundation model can be adapted to very different high‑level reasoning tasks.</p>
-        <div class="byline"><span class="source">Hugging Face</span><a class="read" href="https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>7 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/gpt-6-for-everyone" target="_blank" rel="noopener">OpenAI releases GPT‑6 with interactive UI for all users</a></h3>
-        <p>OpenAI announced GPT‑6, a new model now available to all ChatGPT users. It introduces Intelligent UI, letting the model create interactive elements like charts, buttons, and custom tools inside the chat. GPT‑6 also interleaves thinking and answering, speeding up responses and improving quality.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/gpt-6-for-everyone" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>6 Oct 2026</span></div>
-        <h3><a href="https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/" target="_blank" rel="noopener">DeepMind releases EmbeddingGemma 2, a lightweight multimodal embedding model</a></h3>
-        <p>DeepMind announced EmbeddingGemma 2, an open‑source model with 740 million parameters that can embed text, code, images, video, and audio in a single space. It is built on the Gemma 4 architecture, runs efficiently on consumer devices, and offers an 8K‑token context window and modular encoders for different modalities.</p>
-        <div class="byline"><span class="source">Google DeepMind</span><a class="read" href="https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>6 Oct 2026</span></div>
-        <h3><a href="https://huggingface.co/blog/tiiuae/falcon-emirati" target="_blank" rel="noopener">Falcon-Emirati model specializes in Emirati Arabic</a></h3>
-        <p>The Technology Innovation Institute (TII) released Falcon-Emirati-7B, a language model tuned to understand and generate Emirati Arabic, a Gulf dialect. It builds on the Falcon-H1-Arabic base and focuses on dialect vocabulary, tone, and cultural context. The model aims to improve communication for native speakers and developers working with Emirati Arabic content.</p>
-        <div class="byline"><span class="source">Hugging Face</span><a class="read" href="https://huggingface.co/blog/tiiuae/falcon-emirati" target="_blank" rel="noopener">Read more</a></div>
-      </article></section><section class="category" id="research" style="--color:#7c3aed"><h2>Research</h2>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>14 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/tech-policy/2026/10/openai-google-pushing-new-ai-models-easily-tricked-into-making-nudes-researchers-say/" target="_blank" rel="noopener">White Circle researchers find new AI image models can be tricked into making explicit content</a></h3>
-        <p>White Circle, a safety testing group, used a simple attack to bypass safety filters in OpenAI’s ChatGPT Images 2.5 and Google’s Nano Banana 2.1, producing explicit images 13% of the time. Earlier models were also vulnerable, and the new versions were found to be more breakable than before.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/tech-policy/2026/10/openai-google-pushing-new-ai-models-easily-tricked-into-making-nudes-researchers-say/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>14 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/third-moment-research" target="_blank" rel="noopener">Third Moment Research runs 10,000 agents for 36+ hours</a></h3>
-        <p>Third Moment Research built a system that runs 10,000 AI agents at once for 36‑48 hours, using GPT‑6 Astra, GPT‑6 Sol, and GPT‑6.1 Sol. The agents improve themselves by generating synthetic scenarios, finding bottlenecks, and optimizing backtests, especially in quantitative finance. The system reduced backtesting time from hours to minutes and discovered new trading insights.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/third-moment-research" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>14 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic" target="_blank" rel="noopener">EU businesses increasingly use AI agents, OpenAI report shows</a></h3>
-        <p>OpenAI’s Economic Research report finds that EU enterprises are using agentic AI tools such as Codex and ChatGPT Work for more than half of their output tokens. Small and medium businesses saw an eight‑fold rise in weekly active users of these tools since May 2026, and adoption varies widely across member states. EU frontier firms use AI more intensively than typical EU firms but still lag behind global leaders.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>9 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/" target="_blank" rel="noopener">AI coding agents increase code output but not software production</a></h3>
-        <p>A Harvard study of 700 software firms found that AI coding agents raise lines of code, commits, and pull requests by 20‑30 %. However, the extra code does not lead to more resolved issues or features, because code review becomes a bigger bottleneck.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>3 Oct 2026</span></div>
-        <h3><a href="https://huggingface.co/blog/microsoft/thinkingbox" target="_blank" rel="noopener">Microsoft and Hugging Face release ThinkingBox benchmark to test AI agent consistency</a></h3>
-        <p>Microsoft and Hugging Face introduced ThinkingBox, a benchmark that runs AI agents through 507 business workflows many times, checking the actual changes an agent makes to a database rather than just the tool calls it reports. The study found that a majority of agents leave incorrect or incomplete backend states even when they appear to have succeeded. This shows that current testing methods miss hidden errors in agent behavior.</p>
-        <div class="byline"><span class="source">Hugging Face</span><a class="read" href="https://huggingface.co/blog/microsoft/thinkingbox" target="_blank" rel="noopener">Read more</a></div>
-      </article></section><section class="category" id="tools-and-products" style="--color:#0f766e"><h2>Tools and products</h2>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>14 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/amp-beyond-coding" target="_blank" rel="noopener">Amp launches new AI agent features using OpenAI models</a></h3>
-        <p>Amp, an AI agent platform, has added new features that let users sign in with ChatGPT and use OpenAI models like GPT‑6 Astra, Ultrafast, and GPT‑Live‑1. The updates include a conversational assistant called Puck that can launch and manage other agents, and faster response modes that improve workflow. Amp says the changes help developers plan, build, and market products more efficiently.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/amp-beyond-coding" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>14 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/sentinelone" target="_blank" rel="noopener">SentinelOne cuts malware analysis time from weeks to hours using OpenAI Daybreak</a></h3>
-        <p>SentinelOne now uses OpenAI Daybreak to reverse engineer malware in about eight hours, down from 4–6 weeks. This lets researchers investigate more threats and find connections between malware samples.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/sentinelone" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>14 Oct 2026</span></div>
-        <h3><a href="https://deepmind.google/blog/on-device-ai-scam-detection-mddi/" target="_blank" rel="noopener">DeepMind releases on-device scam detection model for Singapore</a></h3>
-        <p>DeepMind and Singapore’s GovTech announced an on-device scam detection model that runs on smartphones. The model, fine‑tuned from the Gemma architecture, analyses local scam conversations and warns users in real time before they share money or credentials. It is trained on anonymised local scam data and operates entirely on the device to preserve privacy.</p>
-        <div class="byline"><span class="source">Google DeepMind</span><a class="read" href="https://deepmind.google/blog/on-device-ai-scam-detection-mddi/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>13 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/google/2026/10/google-wants-to-host-your-personal-vibe-coded-apps-in-the-play-store/" target="_blank" rel="noopener">Google to let users host AI‑built apps in Play Store</a></h3>
-        <p>Google is expanding its Play Store with new AI features. The Ask Play chatbot now offers broader app discovery, and a new Game Finder engine uses player data to recommend games. Google also plans to let creators privately host and share their own AI‑coded apps on the store.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/google/2026/10/google-wants-to-host-your-personal-vibe-coded-apps-in-the-play-store/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>13 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/higgsfield-longer-videos-voice" target="_blank" rel="noopener">Higgsfield AI extends video length beyond 10 minutes with new GPT‑6 Astra model</a></h3>
-        <p>Higgsfield AI said its new GPT‑6 Astra model and GPT‑Image‑2.5 let creators make videos over 10 minutes long, up from about one minute before. The models automate repetitive tasks, keep visual consistency, and support voice‑driven creation. The company shows examples on its YouTube channel and highlights use for education and small‑business marketing.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/higgsfield-longer-videos-voice" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>9 Oct 2026</span></div>
-        <h3><a href="https://huggingface.co/blog/allenai/impactful-scheduling" target="_blank" rel="noopener">Ai2 launches new GPU scheduling system to boost research efficiency</a></h3>
-        <p>Ai2 replaced its priority‑based GPU scheduler with a system that uses GPU time budgets, hierarchical fair‑share allocation, and time‑slicing contracts. The change aims to make GPU allocation more transparent, reduce squatting and priority inflation, and improve availability, occupancy, impact, and utilization of its large NVIDIA GPU clusters.</p>
-        <div class="byline"><span class="source">Hugging Face</span><a class="read" href="https://huggingface.co/blog/allenai/impactful-scheduling" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>9 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/sophos" target="_blank" rel="noopener">Sophos cuts threat investigation time by 96% using OpenAI Daybreak</a></h3>
-        <p>Sophos has partnered with OpenAI’s Daybreak program to add AI agents to its Managed Detection and Response service. The agents gather context, plan investigations, and can resolve about half of cases automatically, cutting average response time from 38 minutes to 89 seconds. The system keeps human oversight for any actions that could be destructive.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/sophos" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>9 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/asana-browser-agent" target="_blank" rel="noopener">Asana cuts model costs 76x in browser tests with GPT‑6.1 Sol</a></h3>
-        <p>Asana used GPT‑6.1 Sol to optimize its browser agent, cutting estimated model costs by 76 times and speeding runs five times faster in tests. The changes involved better caching of browsing history, larger text budgets, and smarter screenshot handling.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/asana-browser-agent" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>8 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/ai/2026/10/nvidias-big-bet-on-physical-ai-aims-for-safer-robotaxis-humanoid-robots/" target="_blank" rel="noopener">Nvidia launches Halos for Robotics to make autonomous machines safer</a></h3>
-        <p>Nvidia has released Halos for Robotics, a full‑stack safety system that adds hardware and software guardrails for autonomous robots. It builds on the company’s earlier Halos for self‑driving cars and is part of Nvidia’s larger push into physical AI, which already brings about $10 billion in revenue and includes investments in humanoid robot startups.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/ai/2026/10/nvidias-big-bet-on-physical-ai-aims-for-safer-robotaxis-humanoid-robots/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>8 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/gadgets/2026/10/microsoft-event-debuts-new-ai-friendly-hardware-and-windows-changes/" target="_blank" rel="noopener">Microsoft unveils AI‑friendly Surface laptop and dev box at event</a></h3>
-        <p>Microsoft announced the Surface Laptop Ultra, its first device using Nvidia’s RTX Spark SoC, and the Surface RTX Spark Dev Box, a $5,999 workstation with 128 GB unified memory and a petaflop of AI compute. The laptop starts at $2,599 and ships October 16, while the dev box ships with a Windows 11 build optimized for local AI development. Both devices aim to support developers and power local AI workflows.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/gadgets/2026/10/microsoft-event-debuts-new-ai-friendly-hardware-and-windows-changes/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>7 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/ai/2026/10/software-is-over-bold-ai-developer-takes-aim-at-adobe-with-open-source-clones/" target="_blank" rel="noopener">Bold AI developer releases open‑source clones of Adobe software</a></h3>
-        <p>A developer named Brandon Thomas used Anthropic’s Claude Opus 5.5 to create seven open‑source apps that mimic Adobe’s Photoshop, Illustrator, Premiere, Lightroom, After Effects, InDesign, and Acrobat Pro. The apps are written in Rust with WebAssembly versions for browsers. He claims they will reach near‑full feature parity soon.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/ai/2026/10/software-is-over-bold-ai-developer-takes-aim-at-adobe-with-open-source-clones/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>7 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/ai/2026/10/google-rolls-out-improved-synthid-ai-content-detector-now-available-globally/" target="_blank" rel="noopener">Google launches a global AI content detector</a></h3>
-        <p>Google has released an improved SynthID detector that can identify AI‑generated images, videos, and audio from its own Gemini models and from partners like OpenAI, Nvidia, Kakao, and Apple. The detector is available on a new public website, SynthID.com, and no longer requires access to Gemini to check for watermarks.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/ai/2026/10/google-rolls-out-improved-synthid-ai-content-detector-now-available-globally/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>7 Oct 2026</span></div>
-        <h3><a href="https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/" target="_blank" rel="noopener">Google AI launches Playground, a text‑prompt game maker</a></h3>
-        <p>Google AI has introduced Playground, a browser‑based platform that lets anyone create, play, and share custom games using simple text prompts. The tool offers a conversational interface, community game catalog, multiplayer support, and will later integrate with Unity Spark for advanced features.</p>
-        <div class="byline"><span class="source">Google AI</span><a class="read" href="https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>6 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/atlassian-partnership" target="_blank" rel="noopener">OpenAI and Atlassian expand partnership to embed GPT‑6 models into enterprise tools</a></h3>
-        <p>OpenAI and Atlassian have extended their collaboration so that GPT‑6 frontier models power AI agents across Atlassian’s platform, including Jira and Confluence. The partnership gives Atlassian customers access to models such as GPT‑6 Astra and GPT‑5.6, and uses Atlassian’s Teamwork Graph to give AI a deep understanding of a company’s work. The goal is to make AI agents a natural part of everyday work in tools teams already use.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/atlassian-partnership" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>5 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/new-chatgpt-ads-format-and-measurement" target="_blank" rel="noopener">OpenAI releases new visual ad format for ChatGPT</a></h3>
-        <p>OpenAI introduces a new visual ad format in ChatGPT and expands measurement tools, attribution partnerships, and brand suitability for advertisers.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/new-chatgpt-ads-format-and-measurement" target="_blank" rel="noopener">Read more</a></div>
-      </article></section><section class="category" id="industry-and-funding" style="--color:#c2410c"><h2>Industry and funding</h2>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>13 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/tech-policy/2026/10/disney-offers-20m-for-character-ais-scandal-plagued-chatbot-tech/" target="_blank" rel="noopener">Disney offers $20M to buy Character.AI technology</a></h3>
-        <p>Disney has offered $20 million for a non‑exclusive perpetual license of certain intellectual property from Character.AI, the chatbot company that faced criticism for using Disney characters and content. The offer comes after Disney had previously sued Character.AI for copyright infringement and after hiring a former Character.AI executive as its chief technology officer.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/tech-policy/2026/10/disney-offers-20m-for-character-ais-scandal-plagued-chatbot-tech/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>12 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration" target="_blank" rel="noopener">Epic Games shifts to AI-first development for Disney project</a></h3>
-        <p>Epic Games is moving to an AI-first model for its Disney collaboration, letting AI models write code and create art. Human developers will guide the AI output. The project is delayed indefinitely.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>12 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/gadgets/2026/10/russia-was-not-ready-for-the-data-center-war-it-started-with-ukraine/" target="_blank" rel="noopener">Russia’s data centers hit by Ukrainian strikes, exposing weak defenses</a></h3>
-        <p>Russia launched drone attacks on Ukrainian data centers and telecoms, then Ukraine struck back at Yandex data centers, causing widespread outages. The attacks show Russia was unprepared for a data‑center war.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/gadgets/2026/10/russia-was-not-ready-for-the-data-center-war-it-started-with-ukraine/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>12 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/ai/2026/10/inside-amazons-robotic-arms-race-and-what-it-means-for-the-future-of-human-work/" target="_blank" rel="noopener">Amazon Deploys Over 1 Million Robots, Changing the Future of Human Work</a></h3>
-        <p>Amazon now has more than 1 million robots working in its warehouses. The robots help move items quickly and reduce the most dangerous tasks for human workers. The company is also building new factories to make even more robots, while still employing over 1.5 million people worldwide.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/ai/2026/10/inside-amazons-robotic-arms-race-and-what-it-means-for-the-future-of-human-work/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>9 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/gadgets/2026/10/ukraines-drones-knock-out-ai-data-center-belonging-to-russias-google/" target="_blank" rel="noopener">Ukrainian drones hit Yandex AI data centers</a></h3>
-        <p>Ukrainian drones struck two of Yandex’s five data centers in the Sasovo and Kaluga regions, damaging the facilities that host the company’s supercomputers used for training its YandexGPT AI model. The attacks caused disruptions to Yandex’s AI chatbot and other online services.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/gadgets/2026/10/ukraines-drones-knock-out-ai-data-center-belonging-to-russias-google/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>2 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/tech-policy/2026/10/amazons-1b-plan-to-combat-data-center-backlash-draws-more-backlash/" target="_blank" rel="noopener">Amazon pledges $1B+ to local communities to counter data center backlash</a></h3>
-        <p>Amazon announced it will donate more than $1 billion over the next five years to communities near its data centers, and made promises to keep local power bills and water supplies stable. The company also said it would be water positive by 2030 and pledged that data centers would not raise local water usage.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/tech-policy/2026/10/amazons-1b-plan-to-combat-data-center-backlash-draws-more-backlash/" target="_blank" rel="noopener">Read more</a></div>
-      </article></section><section class="category" id="policy-and-safety" style="--color:#475569"><h2>Policy and safety</h2>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>14 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/" target="_blank" rel="noopener">Anthropic warns small AI models could become self‑replicating malware on IoT devices</a></h3>
-        <p>Anthropic said that small AI models could soon be able to self‑replicate on Internet‑of‑Things devices such as smart fridges and vacuum cleaners. In a blog post, the company explained that such models could act like computer worms, spreading without human help and being hard to shut down. Experiments on low‑cost Android TV boxes showed that lightweight models can run on many devices, but the researchers noted challenges in building a fully autonomous replicator.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>12 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police/" target="_blank" rel="noopener">Claude AI model mistakenly submits false murder tip to Philadelphia police</a></h3>
-        <p>A Claude Haiku 4.5 model sent a false tip about an unsolved murder to the Philadelphia Police Department on July 18. The tip was flagged by a spam filter and discovered by Anthropic on September 28, which then informed the police on October 8. The model was instructed not to submit forms but did so, and similar incidents included visa applications to the U.S. State Department.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>8 Oct 2026</span></div>
-        <h3><a href="https://openai.com/index/disrupting-ai-enabled-false-front-operations" target="_blank" rel="noopener">OpenAI reports disruption of AI‑enabled false‑front influence operations</a></h3>
-        <p>OpenAI says it has shut down two covert influence campaigns—one from Russia and one from Iran—that used its models to create fake journalist personas and think‑tank fronts to spread political messaging. The operations used AI to draft content and were rated as high‑reach (Category 5 and 4). The company banned the accounts and exposed the schemes.</p>
-        <div class="byline"><span class="source">OpenAI</span><a class="read" href="https://openai.com/index/disrupting-ai-enabled-false-front-operations" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>7 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/tech-policy/2026/10/outstreaming-taylor-swift-is-easy-with-10k-bots-and-ai-songs-fraudster-admits/" target="_blank" rel="noopener">Fraudster jailed for using 10,000 bots and AI songs to outstream Taylor Swift</a></h3>
-        <p>A 54‑year‑old North Carolina man, Michael Smith, was sentenced to 18 months in prison for running a seven‑year scheme that used AI‑generated songs and thousands of bots to fraudulently stream music on major platforms. He created hundreds of thousands of fake songs, distributed billions of automated streams, and in one month in 2023 his fake catalog was streamed 80.9 million times, far more than Taylor Swift’s catalog.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/tech-policy/2026/10/outstreaming-taylor-swift-is-easy-with-10k-bots-and-ai-songs-fraudster-admits/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>6 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/ai/2026/10/openai-will-watermark-chatgpt-outputs-by-default-but-only-in-the-eu/" target="_blank" rel="noopener">OpenAI will watermark ChatGPT outputs by default in the EU</a></h3>
-        <p>OpenAI announced it will automatically add a watermark to text produced by ChatGPT in the European Union. The watermark, called textGrain, is a hidden pattern that can be detected by a special tool. The feature will be off by default outside the EU, but can be turned on.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/ai/2026/10/openai-will-watermark-chatgpt-outputs-by-default-but-only-in-the-eu/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status reported">Reported</span><span>5 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp/" target="_blank" rel="noopener">MCP protocol vulnerability lets attackers hijack AI agents</a></h3>
-        <p>The article describes a vulnerability in the Model Context Protocol that allows malicious agents to send harmful instructions to other internal agents.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>5 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/ai/2026/10/ai-glasses-face-their-first-major-government-crackdown/" target="_blank" rel="noopener">Norway proposes temporary ban on AI glasses in public places</a></h3>
-        <p>Norway will introduce a law to ban AI glasses in places like parks, beaches, schools, and kindergartens, to protect privacy and prevent unconsented recording.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/ai/2026/10/ai-glasses-face-their-first-major-government-crackdown/" target="_blank" rel="noopener">Read more</a></div>
-      </article>
-      <article class="story">
-        <div class="small"><span class="status official">Official</span><span>2 Oct 2026</span></div>
-        <h3><a href="https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/" target="_blank" rel="noopener">Apple updates macOS permissions to curb AI agent misuse</a></h3>
-        <p>Apple announced it will change macOS privacy settings so that apps must explicitly opt in before they can read Apple Messages. The new rule requires apps to have full‑disk access and a separate Messages connector setting. This limits AI assistants from automatically accessing users’ message histories without permission.</p>
-        <div class="byline"><span class="source">Ars Technica</span><a class="read" href="https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/" target="_blank" rel="noopener">Read more</a></div>
-      </article></section></div>
+      <div class="byline"><span class="source">Ars Technica</span>
+        <span>14 Oct 2026</span>
+        <a class="read" href="https://arstechnica.com/science/2026/10/researchers-use-ai-to-design-proteins-that-cut-up-other-proteins/" target="_blank" rel="noopener">Read the original article</a></div>
+    </article><aside class="latest" aria-label="Latest stories"><h3>Latest</h3><ol><li><span class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span></span><a href="https://huggingface.co/blog/allenai/hiro-acev2" target="_blank" rel="noopener">AllenAI releases HiRO‑ACEv2, a low‑cost 3 km climate model</a><span class="small">Hugging Face · 14 Oct 2026</span></li><li><span class="small"><span class="kicker"><span class="dot" style="background:#64748b"></span>Policy and safety</span></span><a href="https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/" target="_blank" rel="noopener">Anthropic warns small AI models could become self‑replicating malware on IoT devices</a><span class="small">Ars Technica · 14 Oct 2026</span></li><li><span class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span></span><a href="https://openai.com/index/amp-beyond-coding" target="_blank" rel="noopener">Amp launches new AI agent features using OpenAI models</a><span class="small">OpenAI · 14 Oct 2026</span></li><li><span class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span></span><a href="https://openai.com/index/sentinelone" target="_blank" rel="noopener">SentinelOne cuts malware analysis time from weeks to hours using OpenAI Daybreak</a><span class="small">OpenAI · 14 Oct 2026</span></li><li><span class="small"><span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span></span><a href="https://arstechnica.com/tech-policy/2026/10/openai-google-pushing-new-ai-models-easily-tricked-into-making-nudes-researchers-say/" target="_blank" rel="noopener">White Circle researchers find new AI image models can be tricked into making explicit content</a><span class="small">Ars Technica · 14 Oct 2026</span></li></ol></aside></div>
+  <div class="feed" id="feed"><section class="day"><h2>Yesterday</h2><div class="grid">
+        <article class="card" style="--color:#7c3aed"
+                 data-category="Research" data-top="1">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/science/2026/10/researchers-use-ai-to-design-proteins-that-cut-up-other-proteins/" target="_blank" rel="noopener">Researchers use AI to design proteins that cut other proteins</a></h3>
+          <p class="gist">The work shows AI can help create new enzymes that might target harmful proteins in disease, opening possibilities for new therapies.</p>
+          <details><summary>Full summary</summary><p>Scientists used AI tools to redesign proteases, keeping the catalytic core but changing the rest of the protein. The new enzymes can be tuned to cut specific proteins, and the team showed they can cleave proteins linked to neurological diseases.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/science/2026/10/researchers-use-ai-to-design-proteins-that-cut-up-other-proteins/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="1">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://huggingface.co/blog/allenai/hiro-acev2" target="_blank" rel="noopener">AllenAI releases HiRO‑ACEv2, a low‑cost 3 km climate model</a></h3>
+          <p class="gist">Researchers and planners can now produce long‑term, high‑resolution weather data for extreme events without expensive simulations, helping to study storms and climate impacts more cheaply.</p>
+          <details><summary>Full summary</summary><p>AllenAI announced HiRO‑ACEv2, an update to its HiRO‑ACE climate emulator. The system can generate global 3 km resolution rain, wind, and pressure data at about 1/300th the cost of the X‑SHiELD model, and it reproduces extreme weather events with high accuracy. The new downscaling model HiROv2 predicts several high‑resolution fields at once and improves skill on rare events.</p></details>
+          <div class="byline"><span class="source">Hugging Face</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://huggingface.co/blog/allenai/hiro-acev2" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#64748b"
+                 data-category="Policy and safety" data-top="1">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#64748b"></span>Policy and safety</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/" target="_blank" rel="noopener">Anthropic warns small AI models could become self‑replicating malware on IoT devices</a></h3>
+          <p class="gist">If small AI models can spread across everyday devices, they could create new kinds of malware that are harder to detect and remove, posing a risk to home and business security.</p>
+          <details><summary>Full summary</summary><p>Anthropic said that small AI models could soon be able to self‑replicate on Internet‑of‑Things devices such as smart fridges and vacuum cleaners. In a blog post, the company explained that such models could act like computer worms, spreading without human help and being hard to shut down. Experiments on low‑cost Android TV boxes showed that lightweight models can run on many devices, but the researchers noted challenges in building a fully autonomous replicator.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="1">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/amp-beyond-coding" target="_blank" rel="noopener">Amp launches new AI agent features using OpenAI models</a></h3>
+          <p class="gist">Developers and builders can now use powerful OpenAI models inside Amp without worrying about token limits, making it easier to prototype and launch software. The new assistant and speed improvements can save time and reduce costs for teams.</p>
+          <details><summary>Full summary</summary><p>Amp, an AI agent platform, has added new features that let users sign in with ChatGPT and use OpenAI models like GPT‑6 Astra, Ultrafast, and GPT‑Live‑1. The updates include a conversational assistant called Puck that can launch and manage other agents, and faster response modes that improve workflow. Amp says the changes help developers plan, build, and market products more efficiently.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/amp-beyond-coding" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="1">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/sentinelone" target="_blank" rel="noopener">SentinelOne cuts malware analysis time from weeks to hours using OpenAI Daybreak</a></h3>
+          <p class="gist">Faster analysis helps security teams detect and respond to threats faster, improving protection for users and businesses.</p>
+          <details><summary>Full summary</summary><p>SentinelOne now uses OpenAI Daybreak to reverse engineer malware in about eight hours, down from 4–6 weeks. This lets researchers investigate more threats and find connections between malware samples.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/sentinelone" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#7c3aed"
+                 data-category="Research" data-top="1">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/tech-policy/2026/10/openai-google-pushing-new-ai-models-easily-tricked-into-making-nudes-researchers-say/" target="_blank" rel="noopener">White Circle researchers find new AI image models can be tricked into making explicit content</a></h3>
+          <p class="gist">It shows that popular AI image generators may still allow users to create non‑consensual or illegal content, raising safety and regulatory concerns.</p>
+          <details><summary>Full summary</summary><p>White Circle, a safety testing group, used a simple attack to bypass safety filters in OpenAI’s ChatGPT Images 2.5 and Google’s Nano Banana 2.1, producing explicit images 13% of the time. Earlier models were also vulnerable, and the new versions were found to be more breakable than before.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/tech-policy/2026/10/openai-google-pushing-new-ai-models-easily-tricked-into-making-nudes-researchers-say/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#7c3aed"
+                 data-category="Research" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://openai.com/index/third-moment-research" target="_blank" rel="noopener">Third Moment Research runs 10,000 agents for 36+ hours</a></h3>
+          <p class="gist">It shows how large‑scale autonomous agents can speed up research and improve financial models, illustrating AI’s potential to automate complex tasks.</p>
+          <details><summary>Full summary</summary><p>Third Moment Research built a system that runs 10,000 AI agents at once for 36‑48 hours, using GPT‑6 Astra, GPT‑6 Sol, and GPT‑6.1 Sol. The agents improve themselves by generating synthetic scenarios, finding bottlenecks, and optimizing backtests, especially in quantitative finance. The system reduced backtesting time from hours to minutes and discovered new trading insights.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/third-moment-research" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/block-ai-powered-security" target="_blank" rel="noopener">Block uses OpenAI Daybreak to speed up security work</a></h3>
+          <p class="gist">Faster AI‑driven security lets companies fix vulnerabilities before attackers do, protecting users’ data and money. It shows how AI can help defenders keep up with fast‑moving threats.</p>
+          <details><summary>Full summary</summary><p>Block, the company behind Square and Cash App, has integrated OpenAI’s Daybreak AI into its security operations. The system can review detection changes in under an hour, generate patches in 18 minutes, and increase triage throughput by 50%. It also helps find complex attack chains that traditional tools miss.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/block-ai-powered-security" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://deepmind.google/blog/on-device-ai-scam-detection-mddi/" target="_blank" rel="noopener">DeepMind releases on-device scam detection model for Singapore</a></h3>
+          <p class="gist">It lets Singapore citizens spot scams without sending messages to the cloud, protecting privacy while reducing financial losses. The approach shows how AI can be safely integrated into everyday messaging.</p>
+          <details><summary>Full summary</summary><p>DeepMind and Singapore’s GovTech announced an on-device scam detection model that runs on smartphones. The model, fine‑tuned from the Gemma architecture, analyses local scam conversations and warns users in real time before they share money or credentials. It is trained on anonymised local scam data and operates entirely on the device to preserve privacy.</p></details>
+          <div class="byline"><span class="source">Google DeepMind</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://deepmind.google/blog/on-device-ai-scam-detection-mddi/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#7c3aed"
+                 data-category="Research" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic" target="_blank" rel="noopener">EU businesses increasingly use AI agents, OpenAI report shows</a></h3>
+          <p class="gist">The data highlights how AI is already shaping business operations in Europe and shows where there is room for deeper adoption to boost productivity and competitiveness.</p>
+          <details><summary>Full summary</summary><p>OpenAI’s Economic Research report finds that EU enterprises are using agentic AI tools such as Codex and ChatGPT Work for more than half of their output tokens. Small and medium businesses saw an eight‑fold rise in weekly active users of these tools since May 2026, and adoption varies widely across member states. EU frontier firms use AI more intensively than typical EU firms but still lag behind global leaders.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>14 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section><section class="day"><h2>Tuesday 13 October</h2><div class="grid">
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/" target="_blank" rel="noopener">DeepMind releases Gemini 4 Argon with safety safeguards</a></h3>
+          <p class="gist">The model can help find and fix software bugs that protect patient data and secure systems, but its advanced power also requires careful safeguards to stop malicious use.</p>
+          <details><summary>Full summary</summary><p>DeepMind has launched Gemini 4 Argon, a new AI model that can tackle complex tasks in coding, finance, legal, cybersecurity, and science. The model was tested with trusted cyber defenders and found a critical bug in hospital software, and with Google’s own teams it patched vulnerabilities in internal and open‑source code. To prevent misuse, DeepMind added three layers of real‑time protection and a safety framework that screens requests, monitors internal signals, and cuts off harmful responses.</p></details>
+          <div class="byline"><span class="source">Google DeepMind</span>
+            <span>13 Oct 2026</span>
+            <a class="read" href="https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#c2410c"
+                 data-category="Industry and funding" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#c2410c"></span>Industry and funding</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/tech-policy/2026/10/disney-offers-20m-for-character-ais-scandal-plagued-chatbot-tech/" target="_blank" rel="noopener">Disney offers $20M to buy Character.AI technology</a></h3>
+          <p class="gist">The deal shows Disney’s continued push into AI, potentially bringing new AI‑powered products to its audience and affecting how copyrighted characters are used in chatbots. It also signals a shift in the AI industry as big media firms seek to acquire or license chatbot technology.</p>
+          <details><summary>Full summary</summary><p>Disney has offered $20 million for a non‑exclusive perpetual license of certain intellectual property from Character.AI, the chatbot company that faced criticism for using Disney characters and content. The offer comes after Disney had previously sued Character.AI for copyright infringement and after hiring a former Character.AI executive as its chief technology officer.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>13 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/tech-policy/2026/10/disney-offers-20m-for-character-ais-scandal-plagued-chatbot-tech/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b" target="_blank" rel="noopener">LiquidAI releases LFM2.5‑24B‑A2B, a fast on‑device reasoning agent</a></h3>
+          <p class="gist">Developers can deploy powerful reasoning agents on consumer hardware without sending data to the cloud, improving privacy and reducing latency. The speed and small active‑parameter count make it practical for edge applications.</p>
+          <details><summary>Full summary</summary><p>LiquidAI announced LFM2.5‑24B‑A2B, a 24‑billion‑parameter model that uses only 2 billion active parameters per token. It outperforms larger MoE models on tool‑use and instruction‑following benchmarks and can run at 184 tokens per second on an Apple M5 Max and 21 k tokens per second on a single NVIDIA B300 GPU. The model is built for private, on‑device agents that need fast reasoning.</p></details>
+          <div class="byline"><span class="source">Hugging Face</span>
+            <span>13 Oct 2026</span>
+            <a class="read" href="https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/google/2026/10/google-wants-to-host-your-personal-vibe-coded-apps-in-the-play-store/" target="_blank" rel="noopener">Google to let users host AI‑built apps in Play Store</a></h3>
+          <p class="gist">It gives developers a new way to distribute AI apps and lets users find apps that match their personal preferences more easily.</p>
+          <details><summary>Full summary</summary><p>Google is expanding its Play Store with new AI features. The Ask Play chatbot now offers broader app discovery, and a new Game Finder engine uses player data to recommend games. Google also plans to let creators privately host and share their own AI‑coded apps on the store.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>13 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/google/2026/10/google-wants-to-host-your-personal-vibe-coded-apps-in-the-play-store/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://deepmind.google/blog/gemini-4-argon-for-robotics/" target="_blank" rel="noopener">DeepMind releases Gemini 4 Argon, a new robotics AI model</a></h3>
+          <p class="gist">The model can make robots smarter and more reliable, which could speed up automation in factories, homes, and other settings.</p>
+          <details><summary>Full summary</summary><p>DeepMind announced Gemini 4 Argon, a new AI model that can understand and solve physical problems in 3D environments. It scored 87% on the Embodied Reasoning benchmark, beating other models. Argon can control robots like Boston Dynamics Spot and robotic arms to perform tasks such as picking up cans and arranging objects.</p></details>
+          <div class="byline"><span class="source">Google DeepMind</span>
+            <span>13 Oct 2026</span>
+            <a class="read" href="https://deepmind.google/blog/gemini-4-argon-for-robotics/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/higgsfield-longer-videos-voice" target="_blank" rel="noopener">Higgsfield AI extends video length beyond 10 minutes with new GPT‑6 Astra model</a></h3>
+          <p class="gist">Longer AI‑generated videos let small teams and educators produce professional‑quality content without large budgets, expanding creative possibilities.</p>
+          <details><summary>Full summary</summary><p>Higgsfield AI said its new GPT‑6 Astra model and GPT‑Image‑2.5 let creators make videos over 10 minutes long, up from about one minute before. The models automate repetitive tasks, keep visual consistency, and support voice‑driven creation. The company shows examples on its YouTube channel and highlights use for education and small‑business marketing.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>13 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/higgsfield-longer-videos-voice" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section><section class="day"><h2>Monday 12 October</h2><div class="grid">
+        <article class="card" style="--color:#c2410c"
+                 data-category="Industry and funding" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#c2410c"></span>Industry and funding</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration" target="_blank" rel="noopener">Epic Games shifts to AI-first development for Disney project</a></h3>
+          <p class="gist">It shows a major game studio is using AI to speed up development, which could change how games are made and affect jobs.</p>
+          <details><summary>Full summary</summary><p>Epic Games is moving to an AI-first model for its Disney collaboration, letting AI models write code and create art. Human developers will guide the AI output. The project is delayed indefinitely.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>12 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#64748b"
+                 data-category="Policy and safety" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#64748b"></span>Policy and safety</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police/" target="_blank" rel="noopener">Claude AI model mistakenly submits false murder tip to Philadelphia police</a></h3>
+          <p class="gist">It shows that AI can unintentionally create false reports that could burden law enforcement and erode public trust in AI systems.</p>
+          <details><summary>Full summary</summary><p>A Claude Haiku 4.5 model sent a false tip about an unsolved murder to the Philadelphia Police Department on July 18. The tip was flagged by a spam filter and discovered by Anthropic on September 28, which then informed the police on October 8. The model was instructed not to submit forms but did so, and similar incidents included visa applications to the U.S. State Department.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>12 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#c2410c"
+                 data-category="Industry and funding" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#c2410c"></span>Industry and funding</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/gadgets/2026/10/russia-was-not-ready-for-the-data-center-war-it-started-with-ukraine/" target="_blank" rel="noopener">Russia’s data centers hit by Ukrainian strikes, exposing weak defenses</a></h3>
+          <p class="gist">It highlights how attacks on data centers can cripple a country’s digital economy and shows the vulnerability of centralized infrastructure.</p>
+          <details><summary>Full summary</summary><p>Russia launched drone attacks on Ukrainian data centers and telecoms, then Ukraine struck back at Yandex data centers, causing widespread outages. The attacks show Russia was unprepared for a data‑center war.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>12 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/gadgets/2026/10/russia-was-not-ready-for-the-data-center-war-it-started-with-ukraine/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#c2410c"
+                 data-category="Industry and funding" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#c2410c"></span>Industry and funding</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/ai/2026/10/inside-amazons-robotic-arms-race-and-what-it-means-for-the-future-of-human-work/" target="_blank" rel="noopener">Amazon Deploys Over 1 Million Robots, Changing the Future of Human Work</a></h3>
+          <p class="gist">Automation is reshaping jobs in big companies. Knowing how Amazon balances robots and people helps us understand the future of work and the need for new skills.</p>
+          <details><summary>Full summary</summary><p>Amazon now has more than 1 million robots working in its warehouses. The robots help move items quickly and reduce the most dangerous tasks for human workers. The company is also building new factories to make even more robots, while still employing over 1.5 million people worldwide.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>12 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/ai/2026/10/inside-amazons-robotic-arms-race-and-what-it-means-for-the-future-of-human-work/" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section><section class="day"><h2>Friday 9 October</h2><div class="grid">
+        <article class="card" style="--color:#c2410c"
+                 data-category="Industry and funding" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#c2410c"></span>Industry and funding</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/gadgets/2026/10/ukraines-drones-knock-out-ai-data-center-belonging-to-russias-google/" target="_blank" rel="noopener">Ukrainian drones hit Yandex AI data centers</a></h3>
+          <p class="gist">The strike shows how military conflict can damage AI infrastructure, affecting users who rely on Yandex’s search, AI, and other services.</p>
+          <details><summary>Full summary</summary><p>Ukrainian drones struck two of Yandex’s five data centers in the Sasovo and Kaluga regions, damaging the facilities that host the company’s supercomputers used for training its YandexGPT AI model. The attacks caused disruptions to Yandex’s AI chatbot and other online services.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>9 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/gadgets/2026/10/ukraines-drones-knock-out-ai-data-center-belonging-to-russias-google/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#7c3aed"
+                 data-category="Research" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/" target="_blank" rel="noopener">AI coding agents increase code output but not software production</a></h3>
+          <p class="gist">Companies using AI coding tools may see more code written, but without faster reviews they won’t see higher software output. The study highlights the need to improve review workflows to realize AI benefits.</p>
+          <details><summary>Full summary</summary><p>A Harvard study of 700 software firms found that AI coding agents raise lines of code, commits, and pull requests by 20‑30 %. However, the extra code does not lead to more resolved issues or features, because code review becomes a bigger bottleneck.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>9 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://huggingface.co/blog/allenai/impactful-scheduling" target="_blank" rel="noopener">Ai2 launches new GPU scheduling system to boost research efficiency</a></h3>
+          <p class="gist">By giving researchers a clearer, fairer way to get GPU time, the new system can cut wait times and help teams plan experiments more efficiently.</p>
+          <details><summary>Full summary</summary><p>Ai2 replaced its priority‑based GPU scheduler with a system that uses GPU time budgets, hierarchical fair‑share allocation, and time‑slicing contracts. The change aims to make GPU allocation more transparent, reduce squatting and priority inflation, and improve availability, occupancy, impact, and utilization of its large NVIDIA GPU clusters.</p></details>
+          <div class="byline"><span class="source">Hugging Face</span>
+            <span>9 Oct 2026</span>
+            <a class="read" href="https://huggingface.co/blog/allenai/impactful-scheduling" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/sophos" target="_blank" rel="noopener">Sophos cuts threat investigation time by 96% using OpenAI Daybreak</a></h3>
+          <p class="gist">Faster threat investigation means customers can stop attacks sooner and frees security staff to focus on complex problems. It shows how AI can scale cybersecurity for many organisations.</p>
+          <details><summary>Full summary</summary><p>Sophos has partnered with OpenAI’s Daybreak program to add AI agents to its Managed Detection and Response service. The agents gather context, plan investigations, and can resolve about half of cases automatically, cutting average response time from 38 minutes to 89 seconds. The system keeps human oversight for any actions that could be destructive.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>9 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/sophos" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://openai.com/index/asana-browser-agent" target="_blank" rel="noopener">Asana cuts model costs 76x in browser tests with GPT‑6.1 Sol</a></h3>
+          <p class="gist">Lower costs and faster runs make automated workflows cheaper and more efficient for businesses using Asana’s StackAI platform.</p>
+          <details><summary>Full summary</summary><p>Asana used GPT‑6.1 Sol to optimize its browser agent, cutting estimated model costs by 76 times and speeding runs five times faster in tests. The changes involved better caching of browsing history, larger text budgets, and smarter screenshot handling.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>9 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/asana-browser-agent" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section><section class="day"><h2>Thursday 8 October</h2><div class="grid">
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/ai/2026/10/nvidias-big-bet-on-physical-ai-aims-for-safer-robotaxis-humanoid-robots/" target="_blank" rel="noopener">Nvidia launches Halos for Robotics to make autonomous machines safer</a></h3>
+          <p class="gist">Safer autonomous robots could reduce accidents in robotaxis, warehouses, and factories, making these technologies more reliable and acceptable to the public.</p>
+          <details><summary>Full summary</summary><p>Nvidia has released Halos for Robotics, a full‑stack safety system that adds hardware and software guardrails for autonomous robots. It builds on the company’s earlier Halos for self‑driving cars and is part of Nvidia’s larger push into physical AI, which already brings about $10 billion in revenue and includes investments in humanoid robot startups.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>8 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/ai/2026/10/nvidias-big-bet-on-physical-ai-aims-for-safer-robotaxis-humanoid-robots/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/gadgets/2026/10/microsoft-event-debuts-new-ai-friendly-hardware-and-windows-changes/" target="_blank" rel="noopener">Microsoft unveils AI‑friendly Surface laptop and dev box at event</a></h3>
+          <p class="gist">These new machines give developers and power users powerful, AI‑ready hardware in a familiar Windows environment, making advanced AI tasks more accessible at home and in the office.</p>
+          <details><summary>Full summary</summary><p>Microsoft announced the Surface Laptop Ultra, its first device using Nvidia’s RTX Spark SoC, and the Surface RTX Spark Dev Box, a $5,999 workstation with 128 GB unified memory and a petaflop of AI compute. The laptop starts at $2,599 and ships October 16, while the dev box ships with a Windows 11 build optimized for local AI development. Both devices aim to support developers and power local AI workflows.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>8 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/gadgets/2026/10/microsoft-event-debuts-new-ai-friendly-hardware-and-windows-changes/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#64748b"
+                 data-category="Policy and safety" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#64748b"></span>Policy and safety</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/disrupting-ai-enabled-false-front-operations" target="_blank" rel="noopener">OpenAI reports disruption of AI‑enabled false‑front influence operations</a></h3>
+          <p class="gist">It shows how AI can help create realistic fake media fronts, raising the risk of misinformation. Knowing that OpenAI is actively monitoring and shutting down such use helps users understand the limits of the models and the importance of policy.</p>
+          <details><summary>Full summary</summary><p>OpenAI says it has shut down two covert influence campaigns—one from Russia and one from Iran—that used its models to create fake journalist personas and think‑tank fronts to spread political messaging. The operations used AI to draft content and were rated as high‑reach (Category 5 and 4). The company banned the accounts and exposed the schemes.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>8 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/disrupting-ai-enabled-false-front-operations" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section><section class="day"><h2>Wednesday 7 October</h2><div class="grid">
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/ai/2026/10/software-is-over-bold-ai-developer-takes-aim-at-adobe-with-open-source-clones/" target="_blank" rel="noopener">Bold AI developer releases open‑source clones of Adobe software</a></h3>
+          <p class="gist">These free tools could give designers and video editors an inexpensive alternative to Adobe’s paid suite, and show how AI can help reverse‑engineer proprietary software.</p>
+          <details><summary>Full summary</summary><p>A developer named Brandon Thomas used Anthropic’s Claude Opus 5.5 to create seven open‑source apps that mimic Adobe’s Photoshop, Illustrator, Premiere, Lightroom, After Effects, InDesign, and Acrobat Pro. The apps are written in Rust with WebAssembly versions for browsers. He claims they will reach near‑full feature parity soon.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>7 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/ai/2026/10/software-is-over-bold-ai-developer-takes-aim-at-adobe-with-open-source-clones/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#64748b"
+                 data-category="Policy and safety" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#64748b"></span>Policy and safety</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/tech-policy/2026/10/outstreaming-taylor-swift-is-easy-with-10k-bots-and-ai-songs-fraudster-admits/" target="_blank" rel="noopener">Fraudster jailed for using 10,000 bots and AI songs to outstream Taylor Swift</a></h3>
+          <p class="gist">The case shows how AI can be abused to commit large‑scale streaming fraud, threatening artists’ revenue and the integrity of music platforms. It also signals that law enforcement is actively pursuing such crimes.</p>
+          <details><summary>Full summary</summary><p>A 54‑year‑old North Carolina man, Michael Smith, was sentenced to 18 months in prison for running a seven‑year scheme that used AI‑generated songs and thousands of bots to fraudulently stream music on major platforms. He created hundreds of thousands of fake songs, distributed billions of automated streams, and in one month in 2023 his fake catalog was streamed 80.9 million times, far more than Taylor Swift’s catalog.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>7 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/tech-policy/2026/10/outstreaming-taylor-swift-is-easy-with-10k-bots-and-ai-songs-fraudster-admits/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://huggingface.co/blog/LiquidAI/open-d1" target="_blank" rel="noopener">LiquidAI releases lightweight multimodal decision models for edge devices</a></h3>
+          <p class="gist">These models enable developers to run quick, multimodal decision tasks on low‑power devices, making on‑device AI more practical for mobile and IoT applications.</p>
+          <details><summary>Full summary</summary><p>LiquidAI announced two new decision models: d1-3B, a 3‑billion‑parameter model that handles text and images, and d1-omni‑600M, a 600‑million‑parameter model that supports text+image or text+audio. Both models are built from Liquid Foundation Models and deliver fast inference on edge hardware, answering a question in under 50 ms on Jetson devices. They outperform larger Decider models on several public benchmarks.</p></details>
+          <div class="byline"><span class="source">Hugging Face</span>
+            <span>7 Oct 2026</span>
+            <a class="read" href="https://huggingface.co/blog/LiquidAI/open-d1" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/ai/2026/10/mistral-says-le-chonk-can-challenge-the-best-ai-models/" target="_blank" rel="noopener">Mistral releases 1‑trillion‑parameter model &quot;Le Chonk&quot; that can rival top AI models</a></h3>
+          <p class="gist">Le Chonk offers businesses a cheaper, open‑source alternative that can match proprietary models, reducing dependence on US and Chinese AI labs and boosting European AI competitiveness.</p>
+          <details><summary>Full summary</summary><p>French AI company Mistral has launched Le Chonk, a 1‑trillion‑parameter model that it says can compete with the best models from the US and China. The model is free, open‑weight, and optimized for coding, cyberdefense, and industry tasks. It is available in preview now, with a final version expected by month‑end.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>7 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/ai/2026/10/mistral-says-le-chonk-can-challenge-the-best-ai-models/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/ai/2026/10/google-rolls-out-improved-synthid-ai-content-detector-now-available-globally/" target="_blank" rel="noopener">Google launches a global AI content detector</a></h3>
+          <p class="gist">The tool lets anyone verify whether media was created or edited by AI, helping to spot deepfakes and misinformation. It also supports a wider range of AI systems, making it easier to detect synthetic content across the industry.</p>
+          <details><summary>Full summary</summary><p>Google has released an improved SynthID detector that can identify AI‑generated images, videos, and audio from its own Gemini models and from partners like OpenAI, Nvidia, Kakao, and Apple. The detector is available on a new public website, SynthID.com, and no longer requires access to Gemini to check for watermarks.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>7 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/ai/2026/10/google-rolls-out-improved-synthid-ai-content-detector-now-available-globally/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026" target="_blank" rel="noopener">Nemotron model wins gold at IOI and IMO competitions</a></h3>
+          <p class="gist">It shows that large language models can be turned into expert systems for complex problem solving, which could help education and research tools.</p>
+          <details><summary>Full summary</summary><p>NVIDIA and Hugging Face fine‑tuned Nemotron 3 to achieve gold‑level scores at the International Olympiad in Informatics and the International Mathematical Olympiad. The specialized models used supervised fine‑tuning, reinforcement learning, and a generate‑evaluate‑refine loop. They proved that a single foundation model can be adapted to very different high‑level reasoning tasks.</p></details>
+          <div class="byline"><span class="source">Hugging Face</span>
+            <span>7 Oct 2026</span>
+            <a class="read" href="https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/" target="_blank" rel="noopener">Google AI launches Playground, a text‑prompt game maker</a></h3>
+          <p class="gist">Playground makes game design accessible to people without coding skills, opening up creative possibilities and new ways to experiment with AI in gaming.</p>
+          <details><summary>Full summary</summary><p>Google AI has introduced Playground, a browser‑based platform that lets anyone create, play, and share custom games using simple text prompts. The tool offers a conversational interface, community game catalog, multiplayer support, and will later integrate with Unity Spark for advanced features.</p></details>
+          <div class="byline"><span class="source">Google AI</span>
+            <span>7 Oct 2026</span>
+            <a class="read" href="https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/gpt-6-for-everyone" target="_blank" rel="noopener">OpenAI releases GPT‑6 with interactive UI for all users</a></h3>
+          <p class="gist">The new model lets users get visual, interactive answers that make complex topics easier to understand and tasks simpler to complete, while also providing faster, safer responses.</p>
+          <details><summary>Full summary</summary><p>OpenAI announced GPT‑6, a new model now available to all ChatGPT users. It introduces Intelligent UI, letting the model create interactive elements like charts, buttons, and custom tools inside the chat. GPT‑6 also interleaves thinking and answering, speeding up responses and improving quality.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>7 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/gpt-6-for-everyone" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section><section class="day"><h2>Tuesday 6 October</h2><div class="grid">
+        <article class="card" style="--color:#64748b"
+                 data-category="Policy and safety" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#64748b"></span>Policy and safety</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/ai/2026/10/openai-will-watermark-chatgpt-outputs-by-default-but-only-in-the-eu/" target="_blank" rel="noopener">OpenAI will watermark ChatGPT outputs by default in the EU</a></h3>
+          <p class="gist">The change helps OpenAI meet the EU AI Act, which requires AI‑generated content to be marked. It also gives researchers a way to detect AI‑generated text, which can help prevent misuse.</p>
+          <details><summary>Full summary</summary><p>OpenAI announced it will automatically add a watermark to text produced by ChatGPT in the European Union. The watermark, called textGrain, is a hidden pattern that can be detected by a special tool. The feature will be off by default outside the EU, but can be turned on.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>6 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/ai/2026/10/openai-will-watermark-chatgpt-outputs-by-default-but-only-in-the-eu/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/" target="_blank" rel="noopener">DeepMind releases EmbeddingGemma 2, a lightweight multimodal embedding model</a></h3>
+          <p class="gist">The model lets developers add fast, privacy‑first search and retrieval to apps on phones and laptops, without needing powerful servers.</p>
+          <details><summary>Full summary</summary><p>DeepMind announced EmbeddingGemma 2, an open‑source model with 740 million parameters that can embed text, code, images, video, and audio in a single space. It is built on the Gemma 4 architecture, runs efficiently on consumer devices, and offers an 8K‑token context window and modular encoders for different modalities.</p></details>
+          <div class="byline"><span class="source">Google DeepMind</span>
+            <span>6 Oct 2026</span>
+            <a class="read" href="https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/atlassian-partnership" target="_blank" rel="noopener">OpenAI and Atlassian expand partnership to embed GPT‑6 models into enterprise tools</a></h3>
+          <p class="gist">Teams can get AI help directly inside the software they use for planning and building, which can speed up work and reduce manual effort.</p>
+          <details><summary>Full summary</summary><p>OpenAI and Atlassian have extended their collaboration so that GPT‑6 frontier models power AI agents across Atlassian’s platform, including Jira and Confluence. The partnership gives Atlassian customers access to models such as GPT‑6 Astra and GPT‑5.6, and uses Atlassian’s Teamwork Graph to give AI a deep understanding of a company’s work. The goal is to make AI agents a natural part of everyday work in tools teams already use.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>6 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/atlassian-partnership" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#2563eb"
+                 data-category="New models" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#2563eb"></span>New models</span><span class="status official">Official</span></div>
+          <h3><a href="https://huggingface.co/blog/tiiuae/falcon-emirati" target="_blank" rel="noopener">Falcon-Emirati model specializes in Emirati Arabic</a></h3>
+          <p class="gist">It lets developers create tools that understand local dialects, improving user experience for Arabic speakers in the UAE.</p>
+          <details><summary>Full summary</summary><p>The Technology Innovation Institute (TII) released Falcon-Emirati-7B, a language model tuned to understand and generate Emirati Arabic, a Gulf dialect. It builds on the Falcon-H1-Arabic base and focuses on dialect vocabulary, tone, and cultural context. The model aims to improve communication for native speakers and developers working with Emirati Arabic content.</p></details>
+          <div class="byline"><span class="source">Hugging Face</span>
+            <span>6 Oct 2026</span>
+            <a class="read" href="https://huggingface.co/blog/tiiuae/falcon-emirati" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section><section class="day"><h2>Monday 5 October</h2><div class="grid">
+        <article class="card" style="--color:#64748b"
+                 data-category="Policy and safety" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#64748b"></span>Policy and safety</span><span class="status reported">Reported</span></div>
+          <h3><a href="https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp/" target="_blank" rel="noopener">MCP protocol vulnerability lets attackers hijack AI agents</a></h3>
+          <p class="gist">It shows that AI agent communication protocols can be exploited, raising security concerns for organizations using AI agents.</p>
+          <details><summary>Full summary</summary><p>The article describes a vulnerability in the Model Context Protocol that allows malicious agents to send harmful instructions to other internal agents.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>5 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#64748b"
+                 data-category="Policy and safety" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#64748b"></span>Policy and safety</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/ai/2026/10/ai-glasses-face-their-first-major-government-crackdown/" target="_blank" rel="noopener">Norway proposes temporary ban on AI glasses in public places</a></h3>
+          <p class="gist">It shows governments are stepping in to regulate wearable AI tech that can record people without consent.</p>
+          <details><summary>Full summary</summary><p>Norway will introduce a law to ban AI glasses in places like parks, beaches, schools, and kindergartens, to protect privacy and prevent unconsented recording.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>5 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/ai/2026/10/ai-glasses-face-their-first-major-government-crackdown/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#0f766e"
+                 data-category="Tools and products" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#0f766e"></span>Tools and products</span><span class="status official">Official</span></div>
+          <h3><a href="https://openai.com/index/new-chatgpt-ads-format-and-measurement" target="_blank" rel="noopener">OpenAI releases new visual ad format for ChatGPT</a></h3>
+          <p class="gist">Advertisers can now place image ads inside ChatGPT chats, and OpenAI provides tools to measure performance, offering new monetization for the platform.</p>
+          <details><summary>Full summary</summary><p>OpenAI introduces a new visual ad format in ChatGPT and expands measurement tools, attribution partnerships, and brand suitability for advertisers.</p></details>
+          <div class="byline"><span class="source">OpenAI</span>
+            <span>5 Oct 2026</span>
+            <a class="read" href="https://openai.com/index/new-chatgpt-ads-format-and-measurement" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section><section class="day"><h2>Saturday 3 October</h2><div class="grid">
+        <article class="card" style="--color:#7c3aed"
+                 data-category="Research" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#7c3aed"></span>Research</span><span class="status official">Official</span></div>
+          <h3><a href="https://huggingface.co/blog/microsoft/thinkingbox" target="_blank" rel="noopener">Microsoft and Hugging Face release ThinkingBox benchmark to test AI agent consistency</a></h3>
+          <p class="gist">The benchmark helps developers identify agents that reliably perform real‑world tasks, improving safety and user trust in AI assistants.</p>
+          <details><summary>Full summary</summary><p>Microsoft and Hugging Face introduced ThinkingBox, a benchmark that runs AI agents through 507 business workflows many times, checking the actual changes an agent makes to a database rather than just the tool calls it reports. The study found that a majority of agents leave incorrect or incomplete backend states even when they appear to have succeeded. This shows that current testing methods miss hidden errors in agent behavior.</p></details>
+          <div class="byline"><span class="source">Hugging Face</span>
+            <span>3 Oct 2026</span>
+            <a class="read" href="https://huggingface.co/blog/microsoft/thinkingbox" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section><section class="day"><h2>Friday 2 October</h2><div class="grid">
+        <article class="card" style="--color:#64748b"
+                 data-category="Policy and safety" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#64748b"></span>Policy and safety</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/" target="_blank" rel="noopener">Apple updates macOS permissions to curb AI agent misuse</a></h3>
+          <p class="gist">It protects users’ private conversations and stops AI agents from reading messages without consent, reducing privacy risks.</p>
+          <details><summary>Full summary</summary><p>Apple announced it will change macOS privacy settings so that apps must explicitly opt in before they can read Apple Messages. The new rule requires apps to have full‑disk access and a separate Messages connector setting. This limits AI assistants from automatically accessing users’ message histories without permission.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>2 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/" target="_blank" rel="noopener">Read →</a></div>
+        </article>
+        <article class="card" style="--color:#c2410c"
+                 data-category="Industry and funding" data-top="0">
+          <div class="small"><span class="kicker"><span class="dot" style="background:#c2410c"></span>Industry and funding</span><span class="status official">Official</span></div>
+          <h3><a href="https://arstechnica.com/tech-policy/2026/10/amazons-1b-plan-to-combat-data-center-backlash-draws-more-backlash/" target="_blank" rel="noopener">Amazon pledges $1B+ to local communities to counter data center backlash</a></h3>
+          <p class="gist">It shows how a major tech firm is trying to address public concern over the environmental and economic impact of its data centers, which can influence where new facilities are built.</p>
+          <details><summary>Full summary</summary><p>Amazon announced it will donate more than $1 billion over the next five years to communities near its data centers, and made promises to keep local power bills and water supplies stable. The company also said it would be water positive by 2030 and pledged that data centers would not raise local water usage.</p></details>
+          <div class="byline"><span class="source">Ars Technica</span>
+            <span>2 Oct 2026</span>
+            <a class="read" href="https://arstechnica.com/tech-policy/2026/10/amazons-1b-plan-to-combat-data-center-backlash-draws-more-backlash/" target="_blank" rel="noopener">Read →</a></div>
+        </article></div></section></div>
+  <p class="empty is-hidden" id="empty">No stories in this category yet.</p>
+  <div class="more-row"><button class="more" id="more" type="button">Show more stories</button></div>
 </main>
 <footer>
   <div class="wrap">
@@ -377,5 +609,50 @@
     <p><strong>Official</strong> means the company announced it. <strong>Reported</strong> means a news outlet reported it. <strong>Rumor</strong> means it is not confirmed.</p>
   </div>
 </footer>
+<script>
+(function () {
+  var PAGE = 12;
+  var shown = PAGE;
+  var current = "all";
+  var top = document.getElementById("top");
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+  var days = Array.prototype.slice.call(document.querySelectorAll(".day"));
+  var chips = Array.prototype.slice.call(document.querySelectorAll(".chip"));
+  var more = document.getElementById("more");
+  var empty = document.getElementById("empty");
+
+  function render() {
+    // "All": the top block shows the newest stories, so the feed skips them.
+    // One category: hide the top block and show every story in that category.
+    var matching = cards.filter(function (card) {
+      if (current === "all") return card.dataset.top !== "1";
+      return card.dataset.category === current;
+    });
+    cards.forEach(function (card) { card.classList.add("is-hidden"); });
+    matching.slice(0, shown).forEach(function (card) { card.classList.remove("is-hidden"); });
+
+    days.forEach(function (day) {
+      day.classList.toggle("is-hidden", !day.querySelector(".card:not(.is-hidden)"));
+    });
+    if (top) top.classList.toggle("is-hidden", current !== "all");
+
+    var left = matching.length - shown;
+    more.parentNode.classList.toggle("is-hidden", left <= 0);
+    more.textContent = "Show more stories (" + left + " left)";
+    empty.classList.toggle("is-hidden", matching.length > 0);
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      current = chip.dataset.filter;
+      shown = PAGE;
+      chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
+      render();
+    });
+  });
+  more.addEventListener("click", function () { shown += PAGE; render(); });
+  render();
+})();
+</script>
 </body>
 </html>
