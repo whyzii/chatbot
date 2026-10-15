@@ -521,5 +521,29 @@
     "summary": "SentinelOne now uses OpenAI Daybreak to reverse engineer malware in about eight hours, down from 4–6 weeks. This lets researchers investigate more threats and find connections between malware samples.",
     "title": "SentinelOne cuts malware analysis time from weeks to hours using OpenAI Daybreak",
     "why_it_matters": "Faster analysis helps security teams detect and respond to threats faster, improving protection for users and businesses."
+  },
+  {
+    "category": "Research",
+    "decision": "publish",
+    "published": "2026-10-14T07:00:00+00:00",
+    "reason": "Article reports a new research approach by Third Moment Research using OpenAI models",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/third-moment-research",
+    "status": "reported",
+    "summary": "Third Moment Research built a system that runs 10,000 AI agents at once for 36‑48 hours, using GPT‑6 Astra, GPT‑6 Sol, and GPT‑6.1 Sol. The agents improve themselves by generating synthetic scenarios, finding bottlenecks, and optimizing backtests, especially in quantitative finance. The system reduced backtesting time from hours to minutes and discovered new trading insights.",
+    "title": "Third Moment Research runs 10,000 agents for 36+ hours",
+    "why_it_matters": "It shows how large‑scale autonomous agents can speed up research and improve financial models, illustrating AI’s potential to automate complex tasks."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-13T19:43:07+00:00",
+    "reason": "Official DeepMind blog announces new Gemini 4 Argon model with safety measures",
+    "source": "Google DeepMind",
+    "source_url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/",
+    "status": "official",
+    "summary": "DeepMind has launched Gemini 4 Argon, a new AI model that can tackle complex tasks in coding, finance, legal, cybersecurity, and science. The model was tested with trusted cyber defenders and found a critical bug in hospital software, and with Google’s own teams it patched vulnerabilities in internal and open‑source code. To prevent misuse, DeepMind added three layers of real‑time protection and a safety framework that screens requests, monitors internal signals, and cuts off harmful responses.",
+    "title": "DeepMind releases Gemini 4 Argon with safety safeguards",
+    "why_it_matters": "The model can help find and fix software bugs that protect patient data and secure systems, but its advanced power also requires careful safeguards to stop malicious use."
   }
 ]
