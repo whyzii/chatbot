@@ -665,5 +665,29 @@
     "summary": "Black Forest Labs has launched FLUX.3 Image Klein, an open‑source text‑to‑image model available on Hugging Face. The model comes in two checkpoints: a distilled version that can generate a 1024×1024 image in about 2 seconds on an H100 GPU, and a base model for more detailed control. It supports text prompts, image‑to‑image, and layout control, and is built as a Modular Diffusers pipeline for easy customization.",
     "title": "Black Forest Labs releases FLUX.3 Image Klein, a fast, open image generation model",
     "why_it_matters": "The model is free and fast, making high‑quality image generation more accessible to developers and creators who want to experiment without expensive hardware."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-16T15:41:00+00:00",
+    "reason": "New policy change that could affect many businesses and publishers",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/tech-policy/2026/10/meta-may-use-sweeping-new-commercial-tos-to-avoid-millions-in-ai-licensing-fees/",
+    "status": "reported",
+    "summary": "Meta will update its commercial terms on Oct. 30 to require business accounts to allow Meta to crawl and use content from linked websites. The update removes opt‑out options and could force publishers to give Meta free access to their articles, potentially avoiding licensing fees. Legal experts warn this could give Meta broad AI training rights.",
+    "title": "Meta’s new commercial terms could let it train AI on business websites",
+    "why_it_matters": "If true, publishers could lose control over their content and revenue, and the move could change how AI companies access news data."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-16T00:00:00+00:00",
+    "reason": "New open model announced by Hugging Face",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/reflection-beam",
+    "status": "official",
+    "summary": "Hugging Face released Beam, a 501B‑parameter sparse mixture‑of‑experts language model that uses only 23B active parameters per token. It supports a 1 million‑token context window, Rust‑based harness, and can be fine‑tuned or trained with RL. The model is open source under Apache 2.0 and comes with ready‑to‑use libraries such as transformers, vLLM, and SGLang.",
+    "title": "Beam, a 501B‑parameter open model for long‑context coding and agentic tasks",
+    "why_it_matters": "Beam lets teams run frontier‑scale models on their own hardware, customize them for coding or agentic applications, and experiment with long‑context reasoning without needing a large cloud provider."
   }
 ]
