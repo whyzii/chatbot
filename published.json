@@ -557,5 +557,53 @@
     "summary": "Block, the company behind Square and Cash App, has integrated OpenAI’s Daybreak AI into its security operations. The system can review detection changes in under an hour, generate patches in 18 minutes, and increase triage throughput by 50%. It also helps find complex attack chains that traditional tools miss.",
     "title": "Block uses OpenAI Daybreak to speed up security work",
     "why_it_matters": "Faster AI‑driven security lets companies fix vulnerabilities before attackers do, protecting users’ data and money. It shows how AI can help defenders keep up with fast‑moving threats."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-15T15:43:24+00:00",
+    "reason": "Enough info to summarize the FTC probe of Anthropic and OpenAI",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/tech-policy/2026/10/ftc-probes-if-openai-anthropic-security-incidents-harmed-americans-report-says/",
+    "status": "reported",
+    "summary": "The Federal Trade Commission is investigating whether recent security incidents involving Anthropic and OpenAI harmed consumers. The FTC sent civil investigative demands that cover more than 50 pages of questions about the incidents, internal security measures, and marketing materials, and may subpoena third parties. The probe could lead to litigation, and it comes amid existing lawsuits against OpenAI for alleged harms.",
+    "title": "FTC probes Anthropic and OpenAI over consumer harms",
+    "why_it_matters": "Consumers could be affected by unsafe AI products. The investigation may result in stricter regulation and accountability for AI companies."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-15T16:08:03+00:00",
+    "reason": "The article announces a new AI-enabled tool for biologists and a concrete example of its use.",
+    "source": "Google DeepMind",
+    "source_url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+    "status": "official",
+    "summary": "Google DeepMind introduced Antigravity, an agentic science workbench that lets researchers search, evaluate, and prioritize antimicrobial peptide candidates in a single session. The platform uses ProtNLM to predict protein function from amino‑acid sequences and includes a 3D structure viewer. In a demo, Antigravity identified a novel peptide from Streptococcus pseudopneumoniae that is now being tested in the lab.",
+    "title": "Google DeepMind launches Antigravity, an AI workbench to find new antimicrobial peptides",
+    "why_it_matters": "Finding new antibiotics faster could help fight rising antimicrobial resistance, a major global health threat."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-16T01:44:47+00:00",
+    "reason": "Official release of a large Indic dataset and open pipeline",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
+    "status": "official",
+    "summary": "NVIDIA and AI4Bharat have released Nemotron-pretraining-Indic-v1, a dataset of about 2.8 trillion tokens covering 22 Indian languages, and an open, GPU‑accelerated pipeline that can generate more synthetic data. The dataset includes native‑script and romanized text and comes with quality checks.",
+    "title": "NVIDIA and AI4Bharat release 2.8 trillion-token Indic dataset and open data generation pipeline",
+    "why_it_matters": "The release gives developers a huge new resource for training AI models in Indian languages, helping improve technology for 1.2 billion people who speak those languages."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-15T19:00:00+00:00",
+    "reason": "Clear announcement of a new product plan from OpenAI",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+    "status": "official",
+    "summary": "OpenAI announced the Rosalind Academic Plan, giving eligible U.S. university labs up to 30 free Business Standard seats for 12 months and access to the GPT‑Rosalind life‑sciences model after trusted‑access approval.",
+    "title": "OpenAI launches free GPT‑Rosalind access for academic labs",
+    "why_it_matters": "Researchers can use a specialized AI model for drug design, genomics, and other life‑science work without cost, potentially speeding scientific discoveries."
   }
 ]
