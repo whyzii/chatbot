@@ -737,5 +737,17 @@
     "summary": "Itaú is rolling out a conversational AI layer called ia.i and a governance platform called IARA that use OpenAI models to help its customers manage finances. The first phase serves about 300,000 customers, with a goal of covering all 70 million customers by the end of 2026. The system can answer questions about accounts, credit, insurance, and more, and it also supports internal legal tasks on a large document repository.",
     "title": "Itaú launches AI platform for customers",
     "why_it_matters": "It shows how banks can use generative AI to improve customer service and internal efficiency while keeping control over cost, accuracy, and responsible AI policies."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-18T16:25:19+00:00",
+    "reason": "Article reports a new policy action by Anthropic",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/ai/2026/10/anthropic-gives-outside-ai-watchdog-employee-like-access/",
+    "status": "official",
+    "summary": "Anthropic has granted a nonprofit evaluator, METR, employee‑like access to its office, hardware and internal systems to assess the risks of its models. This follows a pledge to strengthen safeguards as AI systems grow more powerful.",
+    "title": "Anthropic lets external watchdogs work inside its office",
+    "why_it_matters": "It shows a leading AI lab is adding third‑party oversight, which could help prevent dangerous AI from harming people or the economy."
   }
 ]
