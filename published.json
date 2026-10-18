@@ -725,5 +725,17 @@
     "summary": "New Jersey deputy attorney general Brian Richard Fitzgerald was arrested on felony charges for using AI to create and share child sexual abuse images. Police traced the activity to his Discord account and recovered AI prompts, scripts, and chat logs that show he made and distributed the illicit content.",
     "title": "New Jersey prosecutor arrested for AI‑generated child sexual abuse material",
     "why_it_matters": "It shows law enforcement is actively targeting AI‑generated CSAM and highlights the legal risks of using AI for illegal content."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-16T19:00:00+00:00",
+    "reason": "Official announcement of a new AI product by Itaú",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/itau-generative-ai",
+    "status": "official",
+    "summary": "Itaú is rolling out a conversational AI layer called ia.i and a governance platform called IARA that use OpenAI models to help its customers manage finances. The first phase serves about 300,000 customers, with a goal of covering all 70 million customers by the end of 2026. The system can answer questions about accounts, credit, insurance, and more, and it also supports internal legal tasks on a large document repository.",
+    "title": "Itaú launches AI platform for customers",
+    "why_it_matters": "It shows how banks can use generative AI to improve customer service and internal efficiency while keeping control over cost, accuracy, and responsible AI policies."
   }
 ]
