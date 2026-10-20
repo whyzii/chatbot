@@ -785,5 +785,17 @@
     "summary": "AI coding tools make it easy to copy games, so indie developers are becoming cautious about sharing early work. Alliance Arts delayed a demo of its game Drunken Goddess Reflex to avoid leaks, and other developers like Lucas Pope and Freya Holmér have expressed similar worries after seeing copies of their prototypes appear quickly.",
     "title": "AI game clones are making indie developers afraid to show their work",
     "why_it_matters": "If AI can replicate ideas fast, indie creators may hold back new games, slowing innovation and affecting the diversity of games available."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-19T12:00:00+00:00",
+    "reason": "Official announcement of new GPT‑6 models with improved low‑resource language support.",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/low-resource-programming-languages",
+    "status": "official",
+    "summary": "OpenAI announced GPT‑6 Astra and GPT‑6 Luna, which achieve higher accuracy on the MultiLangBench test for building software in 20 languages and on a COBOL migration test. The models improve pass rates from 26.8% to 87.4% on MultiLangBench and from 5.4% to 86.6% on COBOL migration, while cutting estimated API cost by up to 78%.",
+    "title": "OpenAI releases GPT‑6 models that better handle low‑resource programming languages",
+    "why_it_matters": "Many critical systems run on legacy languages like COBOL and Fortran. Better AI coding support helps teams maintain and modernize these systems more efficiently and cheaply."
   }
 ]
