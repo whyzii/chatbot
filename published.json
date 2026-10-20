@@ -881,5 +881,17 @@
     "summary": "Hugging Face announced TorchTPU, a native PyTorch backend that lets users run models on Google Cloud TPUs without extra tools. The new library adds TPU as a device in PyTorch, with support for Transformers, Diffusers, and distributed training. Users can install it with pip and load models directly onto TPUs using device_map='tpu' or pipe.to('tpu').",
     "title": "Hugging Face releases TorchTPU, native PyTorch support for TPUs",
     "why_it_matters": "It simplifies using TPUs for training and inference, making high‑performance AI more accessible to developers who prefer PyTorch. This reduces the need for complex tooling and speeds up experimentation."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-20T20:00:33+00:00",
+    "reason": "The article reports a new product feature announced by Google",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/google/2026/10/geminis-personal-intelligence-is-coming-to-cars/",
+    "status": "official",
+    "summary": "Google has added its Personal Intelligence feature to Gemini, now available in cars via Android Auto and Google‑built‑in infotainment systems. The feature lets the AI use data from Gmail, Calendar, photos, etc., to give more accurate answers and navigation without needing the driver to give detailed instructions. It is optional and will roll out to more vehicles over the next months.",
+    "title": "Google rolls out Personal Intelligence in Android Auto and Google‑built‑in cars",
+    "why_it_matters": "Drivers can get smarter, context‑aware assistance while driving, making navigation and tasks easier and safer. It shows how generative AI is moving into everyday devices."
   }
 ]
