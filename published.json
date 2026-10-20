@@ -797,5 +797,29 @@
     "summary": "OpenAI announced GPT‑6 Astra and GPT‑6 Luna, which achieve higher accuracy on the MultiLangBench test for building software in 20 languages and on a COBOL migration test. The models improve pass rates from 26.8% to 87.4% on MultiLangBench and from 5.4% to 86.6% on COBOL migration, while cutting estimated API cost by up to 78%.",
     "title": "OpenAI releases GPT‑6 models that better handle low‑resource programming languages",
     "why_it_matters": "Many critical systems run on legacy languages like COBOL and Fortran. Better AI coding support helps teams maintain and modernize these systems more efficiently and cheaply."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-20T12:33:13+00:00",
+    "reason": "The article reports a security flaw in Meta Muse that exposes private data.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/",
+    "status": "reported",
+    "summary": "Researchers found that the share URLs for Meta’s Muse AI agent are easy to discover, allowing anyone to access private conversations. The URLs use a predictable domain and include the conversation title, making them vulnerable to enumeration. The researchers enumerated 6,800 links and found sensitive information such as executive‑search notes, revenue reviews, loan applications, and personal calendars.",
+    "title": "Meta Muse share links expose private data",
+    "why_it_matters": "Users of Meta Muse risk leaking confidential personal and business information simply by sharing a link. The flaw shows that even products marketed as privacy‑focused can have design weaknesses that expose sensitive data."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-20T00:00:00+00:00",
+    "reason": "Official release of a new library version announced by Hugging Face",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/anylanguagemodel-1-0",
+    "status": "official",
+    "summary": "Hugging Face announced AnyLanguageModel 1.0, a Swift library that lets developers run language models locally or in the cloud on iOS, macOS, and visionOS. The new version adds a drop‑in API, tool calling, guided generation, image support, and support for many providers such as OpenAI, Anthropic, Google Gemini, Ollama, and Hugging Face Inference. It also introduces swift‑huggingface and swift‑xet for faster model downloads.",
+    "title": "AnyLanguageModel 1.0 released for Apple platforms",
+    "why_it_matters": "Developers can use one API to access many models on Apple devices, making it easier to add AI features to apps and create richer user experiences."
   }
 ]
