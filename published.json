@@ -821,5 +821,65 @@
     "summary": "Hugging Face announced AnyLanguageModel 1.0, a Swift library that lets developers run language models locally or in the cloud on iOS, macOS, and visionOS. The new version adds a drop‑in API, tool calling, guided generation, image support, and support for many providers such as OpenAI, Anthropic, Google Gemini, Ollama, and Hugging Face Inference. It also introduces swift‑huggingface and swift‑xet for faster model downloads.",
     "title": "AnyLanguageModel 1.0 released for Apple platforms",
     "why_it_matters": "Developers can use one API to access many models on Apple devices, making it easier to add AI features to apps and create richer user experiences."
+  },
+  {
+    "category": "Industry and funding",
+    "decision": "publish",
+    "published": "2026-10-20T00:00:00+00:00",
+    "reason": "Official announcement of acquisition by OpenAI",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
+    "status": "official",
+    "summary": "OpenAI announced it has acquired Orchestra Bio, a platform that coordinates drug development. The deal combines Orchestra’s team and technology with OpenAI’s Rosalind AI models to help scientists manage complex workflows and accelerate new medicines. The goal is to make discoveries faster and bring treatments to patients sooner.",
+    "title": "OpenAI acquires Orchestra Bio to speed drug development with AI",
+    "why_it_matters": "It shows AI is being used to streamline drug development, potentially shortening the 10‑15 year timeline and improving access to new treatments."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-20T18:17:47+00:00",
+    "reason": "New model release with official NVIDIA announcement",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/nvidia/cosmos3-h-dreams",
+    "status": "official",
+    "summary": "NVIDIA released Cosmos3-H-Dreams, a generative simulation model trained on real cholecystectomy videos. It can generate realistic surgical scenes in real time on a single RTX PRO 6000 GPU, using FlashDreams for fast streaming inference. The model builds on Cosmos3 and supports interactive control of surgical instruments.",
+    "title": "NVIDIA releases Cosmos3-H-Dreams, a real‑time surgical simulator",
+    "why_it_matters": "The model could improve surgical training and rehearsal by providing realistic, responsive virtual environments. It also shows progress in using AI to simulate complex medical procedures."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-20T16:09:19+00:00",
+    "reason": "Official announcement of a new fairness benchmark for LLMs",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/allenai/fairstress",
+    "status": "official",
+    "summary": "AllenAI introduced FairStress, a benchmark with 300 two‑candidate scenarios across 29 domains, designed to test how large language models change decisions when faced with persuasive arguments that favor different demographic groups. The benchmark measures whether models are more likely to switch from a stronger candidate when the argument supports a particular identity, exposing hidden asymmetries in fairness. It is available for download and will be integrated into the Olmo‑eval workbench.",
+    "title": "FairStress benchmark reveals hidden fairness gaps in LLMs",
+    "why_it_matters": "FairStress helps developers and researchers detect subtle bias that standard fairness tests miss, ensuring AI systems are more robust and equitable in high‑stakes decisions such as hiring, lending, and healthcare."
+  },
+  {
+    "category": "Research",
+    "decision": "publish",
+    "published": "2026-10-20T15:19:48+00:00",
+    "reason": "The article reports a new research technique that improves performance on a benchmark, with official source from IBM Research on Hugging Face.",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/ibm-research/altk-evolve-bc",
+    "status": "official",
+    "summary": "IBM Research introduced ALTK‑Evolve, a method that extracts short behavioral rules from a GPT‑4.1 agent’s past task attempts and appends them to the system prompt. Using these learned guidelines, the agent scores 67.5 % Pass^4 on the τ²‑bench retail customer‑service benchmark, beating all other entries in the October 12, 2026 leaderboard snapshot. The approach requires no model weight updates or human annotation and works with the stock ReAct scaffold.",
+    "title": "ALTK‑Evolve: Learned memory rules boost GPT‑4.1 customer‑service agent to top of τ²‑bench",
+    "why_it_matters": "It shows that simple learned memory can make a standard LLM perform at the top of a policy‑bound customer‑service benchmark, suggesting a practical way to boost real‑world AI assistants without costly model upgrades."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-20T00:00:00+00:00",
+    "reason": "Official announcement of a new product that enables native PyTorch TPU support",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/hf-torchtpu",
+    "status": "official",
+    "summary": "Hugging Face announced TorchTPU, a native PyTorch backend that lets users run models on Google Cloud TPUs without extra tools. The new library adds TPU as a device in PyTorch, with support for Transformers, Diffusers, and distributed training. Users can install it with pip and load models directly onto TPUs using device_map='tpu' or pipe.to('tpu').",
+    "title": "Hugging Face releases TorchTPU, native PyTorch support for TPUs",
+    "why_it_matters": "It simplifies using TPUs for training and inference, making high‑performance AI more accessible to developers who prefer PyTorch. This reduces the need for complex tooling and speeds up experimentation."
   }
 ]
