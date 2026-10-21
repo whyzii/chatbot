@@ -929,5 +929,41 @@
     "summary": "Terminal X built an Eval Agent that uses GPT‑6.1 Sol to grade investment recommendations against a 54‑criterion rubric. The agent agreed with senior investors 88.6% of the time, caught 25% more out‑of‑mandate recommendations, and ran 30% cheaper per query. One private‑equity client saved $2.4 million annually on due‑diligence workflows.",
     "title": "Terminal X’s Eval Agent matches senior investor judgment 88.6% using GPT‑6.1 Sol",
     "why_it_matters": "The system shows how AI can help investment firms automate and audit decisions, saving money and reducing errors. It demonstrates the practical value of large‑language models in finance."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-21T14:58:18+00:00",
+    "reason": "Official release of new speech models and updates",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+    "status": "official",
+    "summary": "IBM announced Granite Speech 5.0, adding a new 2‑billion‑parameter model and updated 470‑million‑parameter Turbo CTC and 2‑billion‑parameter 4.1‑plus models. The new model offers higher accuracy, better noise robustness, multilingual transcription and translation, up to 2,000‑term keyword biasing, and optional punctuation. The updates add multilingual support, faster speed, native punctuation, and improved speaker attribution and timestamps.",
+    "title": "Granite Speech 5.0: New model and updates improve transcription, translation, and speaker attribution",
+    "why_it_matters": "The improvements give businesses faster, more accurate speech‑to‑text and translation, useful for meetings, calls, and edge devices where speed and speaker identification matter."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-21T12:51:24+00:00",
+    "reason": "New model announced by NVIDIA on Hugging Face",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/nvidia/kumo-forecast",
+    "status": "official",
+    "summary": "NVIDIA has launched Kumo Forecast, a multivariate time‑series forecasting model that uses a pretrained MOMENT‑1‑large Transformer backbone and a Domain‑Aware Representation and Retrieval (DARR) module. The model can combine direct predictions with nearest‑neighbor patterns from historical data and offers interpretability tools that explain each forecast horizon. It is available on Hugging Face under the NVIDIA/Kumo‑TS code and nvidia/Kumo‑Forecast weights.",
+    "title": "NVIDIA releases Kumo Forecast, a time‑series model that blends pretrained Transformers with historical pattern retrieval",
+    "why_it_matters": "The model lets users forecast future values more accurately by using both learned representations and real past patterns, and it provides explanations for its predictions, which can help businesses trust and act on the forecasts."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-21T12:00:00+00:00",
+    "reason": "Official announcement of OpenAI models on Google Cloud",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/openai-models-google-cloud",
+    "status": "official",
+    "summary": "OpenAI and Google Cloud have announced a partnership that brings OpenAI’s frontier models and Codex agentic workflows into Google Cloud’s Model Garden. Customers can purchase and use these models through the Google Cloud Marketplace, with built‑in data governance and high‑performance infrastructure. General availability is planned in the coming weeks.",
+    "title": "OpenAI models will be available on Google Cloud",
+    "why_it_matters": "It lets enterprises use powerful OpenAI models inside the Google Cloud environment, making it easier to build agentic workflows and keep data under control."
   }
 ]
