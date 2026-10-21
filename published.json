@@ -893,5 +893,41 @@
     "summary": "Google has added its Personal Intelligence feature to Gemini, now available in cars via Android Auto and Google‑built‑in infotainment systems. The feature lets the AI use data from Gmail, Calendar, photos, etc., to give more accurate answers and navigation without needing the driver to give detailed instructions. It is optional and will roll out to more vehicles over the next months.",
     "title": "Google rolls out Personal Intelligence in Android Auto and Google‑built‑in cars",
     "why_it_matters": "Drivers can get smarter, context‑aware assistance while driving, making navigation and tasks easier and safer. It shows how generative AI is moving into everyday devices."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-21T10:59:42+00:00",
+    "reason": "New library announced on Hugging Face, providing free simulation-ready assets",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories",
+    "status": "official",
+    "summary": "Hugging Face launched SimReady Central, a free library with over 2,000 OpenUSD 3D assets that include collision geometry, mass, friction, and other simulation properties. The library lets developers and OEMs quickly build realistic robotics and AI factory simulations without manual asset preparation.",
+    "title": "SimReady Central: Free library of simulation-ready 3D assets for robotics and AI factories",
+    "why_it_matters": "It speeds up creating training environments for robots and AI factories, helping developers test and refine systems faster and reducing time to market."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-20T10:00:00+00:00",
+    "reason": "Real customer story with measurable results from an official OpenAI product",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/ted-taylor-restaurant",
+    "status": "official",
+    "summary": "An independent Schlotzsky’s and Cinnabon franchisee used OpenAI’s ChatGPT Work to reduce monthly cash reconciliation time from five days to one or two hours, saving four hours of payroll work each month and potentially freeing up $100,000 in annual cash flow.",
+    "title": "Franchisee cuts cash reconciliation time by 94% using ChatGPT Work",
+    "why_it_matters": "It shows how AI tools can help small business owners save time and money, improving their bottom line."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-20T07:00:00+00:00",
+    "reason": "Article reports a new product feature and its performance, suitable for publication",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/terminal-x",
+    "status": "official",
+    "summary": "Terminal X built an Eval Agent that uses GPT‑6.1 Sol to grade investment recommendations against a 54‑criterion rubric. The agent agreed with senior investors 88.6% of the time, caught 25% more out‑of‑mandate recommendations, and ran 30% cheaper per query. One private‑equity client saved $2.4 million annually on due‑diligence workflows.",
+    "title": "Terminal X’s Eval Agent matches senior investor judgment 88.6% using GPT‑6.1 Sol",
+    "why_it_matters": "The system shows how AI can help investment firms automate and audit decisions, saving money and reducing errors. It demonstrates the practical value of large‑language models in finance."
   }
 ]
