@@ -965,5 +965,65 @@
     "summary": "OpenAI and Google Cloud have announced a partnership that brings OpenAI’s frontier models and Codex agentic workflows into Google Cloud’s Model Garden. Customers can purchase and use these models through the Google Cloud Marketplace, with built‑in data governance and high‑performance infrastructure. General availability is planned in the coming weeks.",
     "title": "OpenAI models will be available on Google Cloud",
     "why_it_matters": "It lets enterprises use powerful OpenAI models inside the Google Cloud environment, making it easier to build agentic workflows and keep data under control."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-21T18:26:30+00:00",
+    "reason": "New model announced by NVIDIA, clear performance claims",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/nvidia/kumo-relational",
+    "status": "official",
+    "summary": "NVIDIA released Kumo Relational, a pre‑trained foundation model that can predict outcomes on relational databases without any task‑specific training. In tests on 41 tasks across 15 databases, it outperformed supervised deep‑learning models and gradient‑boosted tree pipelines, and beat AutoGluon ensembles by 8% on the SAP SALT benchmark. The model can handle databases with over 500 billion rows and is available through NVIDIA’s open‑source library or as a NVIDIA NIM.",
+    "title": "NVIDIA Kumo Relational beats supervised machine learning on relational data",
+    "why_it_matters": "It means companies can get accurate predictions from their existing databases faster and cheaper, without building custom models or doing heavy feature engineering. The model also lets AI agents ask predictive questions directly from the data."
+  },
+  {
+    "category": "Research",
+    "decision": "publish",
+    "published": "2026-10-21T17:35:36+00:00",
+    "reason": "The article reports a new research technique with measurable results",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
+    "status": "official",
+    "summary": "A new method called VocabX tailors the tokenizer vocabulary for a specific domain, reducing token count and inference cost by 77% on a Portuguese essay grader built on Qwen3-4B, without changing the base model.",
+    "title": "Specialized vocabulary cuts inference cost by 77%",
+    "why_it_matters": "Lower inference cost means cheaper AI services and faster responses, especially for small models used in production."
+  },
+  {
+    "category": "Industry and funding",
+    "decision": "publish",
+    "published": "2026-10-21T15:14:07+00:00",
+    "reason": "The article reports a real company's valuation, adoption, and funding, fitting the site’s scope.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/ai/2026/10/the-15-billion-ad-powered-ai-startup-your-doctor-may-already-be-using/",
+    "status": "reported",
+    "summary": "Miami‑based OpenEvidence, founded in 2022, has grown to a $15 billion valuation after doctors used its AI chatbot to search medical literature. The company raised $1 billion in funding and plans to generate $400–500 million in ad revenue by the end of 2026.",
+    "title": "OpenEvidence, a $15B ad‑powered AI startup, is being used by many US doctors",
+    "why_it_matters": "Doctors are increasingly relying on AI tools for patient care, raising questions about accuracy and the future of medical decision‑making."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-21T13:00:00+00:00",
+    "reason": "Official announcement of new feature expansion",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
+    "status": "official",
+    "summary": "OpenAI has added ChatGPT Ads to 26 more countries, bringing the total to 89. Over 100,000 advertisers have run campaigns on the platform since it launched eight months ago. Ads will appear only on free and Go plans, while Pro and Enterprise plans stay ad‑free.",
+    "title": "ChatGPT Ads expands to 26 new countries, 100,000 advertisers already using it",
+    "why_it_matters": "More people can discover products while using ChatGPT, and businesses can reach customers at the moment they are deciding what to buy. The expansion also supports OpenAI’s goal of keeping ChatGPT free for many users."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-21T07:00:00+00:00",
+    "reason": "OpenAI announced a new coordinated vulnerability response initiative",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+    "status": "official",
+    "summary": "OpenAI announced the Patch the Planet initiative, a coordinated effort that used its AI models to find critical PHP vulnerabilities. The company worked with PHP maintainers, security partners like Wiz and Cloudflare, and U.S. government agencies to validate, fix, and release patches before attackers could exploit them. OpenAI also pledged $1 billion in subsidized access for frontline defenders.",
+    "title": "OpenAI launches Patch the Planet to coordinate AI‑driven security fixes",
+    "why_it_matters": "PHP powers many websites; fixing these flaws protects millions of users. The initiative shows how AI can help security teams act faster and share fixes widely."
   }
 ]
