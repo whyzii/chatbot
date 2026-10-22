@@ -1025,5 +1025,65 @@
     "summary": "OpenAI announced the Patch the Planet initiative, a coordinated effort that used its AI models to find critical PHP vulnerabilities. The company worked with PHP maintainers, security partners like Wiz and Cloudflare, and U.S. government agencies to validate, fix, and release patches before attackers could exploit them. OpenAI also pledged $1 billion in subsidized access for frontline defenders.",
     "title": "OpenAI launches Patch the Planet to coordinate AI‑driven security fixes",
     "why_it_matters": "PHP powers many websites; fixing these flaws protects millions of users. The initiative shows how AI can help security teams act faster and share fixes widely."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-22T07:51:31+00:00",
+    "reason": "Official announcement of a new forecasting tool",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+    "status": "official",
+    "summary": "IBM Research announced the Granite Timeseries Ensemble, a pre‑trained ensemble of four Granite models that can forecast time‑series data without retraining. The ensemble offers point and quantile predictions and uses two combination methods: a default Probabilistic Ensemble and an adaptive IQR Ensemble. The models are available on Hugging Face and can be used directly via a Python package.",
+    "title": "IBM releases Granite Timeseries Ensemble for easy forecasting",
+    "why_it_matters": "It removes the need to choose and tune individual forecasting models, giving users reliable predictions and uncertainty estimates for a wide range of applications."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-21T21:00:00+00:00",
+    "reason": "Official policy update from OpenAI on safety standards",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/broad-access-through-consistent-standards",
+    "status": "official",
+    "summary": "OpenAI announced that it will align safety policies across all services that provide its models, including direct access, partner-hosted, and reseller channels. The company is updating its Usage Policies, introducing SafetyIDs, and requiring partners to meet the same safeguards and enforcement procedures. The goal is to keep safeguards effective as models grow more capable and to make it easier for developers to build safely.",
+    "title": "OpenAI sets consistent safety standards for all access points",
+    "why_it_matters": "Consistent rules help developers and businesses use AI tools safely and confidently, no matter which platform they choose."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-21T07:00:00+00:00",
+    "reason": "New ad system feature announced by OpenAI",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/building-chatgpt-ad-stack",
+    "status": "official",
+    "summary": "OpenAI created a new ad stack for ChatGPT that uses a custom large language model to retrieve, rank, and deliver ads in a stateful session. The system runs separately from ChatGPT’s answer generation to keep ads from influencing responses. Within 200 days of launch it reached a $1 billion annualized revenue run rate and has attracted over 100,000 advertisers.",
+    "title": "OpenAI builds a new ad system for ChatGPT",
+    "why_it_matters": "It shows how AI can offer relevant advertising while protecting user trust, giving advertisers a new way to reach people in conversation."
+  },
+  {
+    "category": "Research",
+    "decision": "publish",
+    "published": "2026-10-21T04:50:00+00:00",
+    "reason": "Article describes a new AI method and tool released by OpenAI",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
+    "status": "official",
+    "summary": "OpenAI, PerturbAI and Scripps Research used thousands of GPT‑Rosalind agents to analyze a whole‑brain CRISPR atlas of millions of mouse brain cells in 32 minutes. The agents linked gene disruptions to cellular responses, literature, and possible mechanisms, uncovering new biological connections and potential disease insights.",
+    "title": "OpenAI uses thousands of AI agents to analyze brain data quickly",
+    "why_it_matters": "The approach cuts analysis time from months or years to minutes, helping scientists spot disease mechanisms faster and identify new treatment targets."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-21T00:00:00+00:00",
+    "reason": "New AI-powered security service announced by Cloudflare",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/cloudflare-cyber",
+    "status": "official",
+    "summary": "Cloudflare has introduced an early‑access service that uses OpenAI’s Daybreak and Codex models to scan customer code, identify potential security flaws, and propose patches. The system adds live traffic and security signals to prioritize findings and prepares fixes for developers to review.",
+    "title": "Cloudflare launches AI‑powered vulnerability detection service",
+    "why_it_matters": "The service can help companies find and fix vulnerabilities faster, saving time and reducing the risk of breaches. It also shows how AI can boost developer productivity and improve code quality."
   }
 ]
