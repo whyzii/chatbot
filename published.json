@@ -1085,5 +1085,65 @@
     "summary": "Cloudflare has introduced an early‑access service that uses OpenAI’s Daybreak and Codex models to scan customer code, identify potential security flaws, and propose patches. The system adds live traffic and security signals to prioritize findings and prepares fixes for developers to review.",
     "title": "Cloudflare launches AI‑powered vulnerability detection service",
     "why_it_matters": "The service can help companies find and fix vulnerabilities faster, saving time and reducing the risk of breaches. It also shows how AI can boost developer productivity and improve code quality."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-22T19:00:00+00:00",
+    "reason": "New product announced by OpenAI",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/decisions-api",
+    "status": "official",
+    "summary": "OpenAI has made its Decisions API generally available. Built on GPT‑6 Luna, the API lets developers ask up to 400 bounded‑answer questions per request and get a probability, choice, or score in real time. It supports text, images, and JSON, is 10× faster than GPT‑6 Luna, and integrates with GPT‑Live for voice and avatar applications.",
+    "title": "OpenAI launches Decisions API for faster, low‑cost decisions",
+    "why_it_matters": "The API can cut app latency and cost, enabling smoother interactions in chat, voice, and other AI‑powered services."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-22T16:11:31+00:00",
+    "reason": "Official release of new satellite embedding model and tool",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/allenai/olmoearth-v1-3",
+    "status": "official",
+    "summary": "AllenAI released OlmoEarth v1.3, a satellite embedding model that turns radar and multispectral imagery into 128‑dimensional vectors for every 10‑meter pixel worldwide. The team also shared precomputed annual embeddings for the entire planet and a browser tool to explore them. The new model outperforms rivals on 20 of 27 benchmarks and is cheaper to train.",
+    "title": "OlmoEarth v1.3: New satellite embedding model and global embeddings",
+    "why_it_matters": "The embeddings let anyone build maps of land use, crop types, or mining without heavy compute, making satellite data more accessible for researchers, NGOs, and developers."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-22T14:30:24+00:00",
+    "reason": "New global forest typology map released by DeepMind, official announcement",
+    "source": "Google DeepMind",
+    "source_url": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
+    "status": "official",
+    "summary": "Google DeepMind and partners have released Forest Typology (ForTy) 2020, a 10‑meter resolution map that classifies every 10‑by‑10‑meter patch of Earth into six forest and land‑use types and provides a yearly time series from 2017 to 2025. The map shows whether land is primary forest, plantation, tree crops, or other, and tracks changes over time.",
+    "title": "DeepMind releases 10‑meter global forest type map",
+    "why_it_matters": "The detailed classification helps companies and regulators enforce the EU deforestation‑free product rules and supports conservation by showing where natural forests are being converted."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-22T00:00:00+00:00",
+    "reason": "Clear company-wide rollout of a new AI tool announced by OpenAI and Uber",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/uber-chatgpt-work-rollout",
+    "status": "official",
+    "summary": "Uber announced a company‑wide rollout of ChatGPT Work, an agent in ChatGPT Enterprise, to more than 30,000 employees. The platform can handle complex, multi‑step tasks and connects to tools such as Google Drive, Gmail, Google Calendar and Slack. It uses OpenAI’s GPT‑6.1 Sol model and multimodal voice and image capabilities.",
+    "title": "Uber rolls out ChatGPT Work to all employees",
+    "why_it_matters": "The rollout lets Uber staff automate routine work, improve productivity, and gives the company broader access to OpenAI’s advanced models. It shows how large firms are integrating AI into everyday workflows."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-21T17:00:00+00:00",
+    "reason": "Official announcement of AT&T’s partnership with OpenAI to develop an AI‑powered legal intake system.",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/att-legal",
+    "status": "official",
+    "summary": "AT&T’s in‑house legal team is working with OpenAI to create a new system that uses natural language intake to classify and prioritize legal requests. The system will link requests to relevant precedent, research, and past work, giving lawyers a ready‑made context and suggested next steps. The goal is to make legal advice faster and more consistent across the company.",
+    "title": "AT&T partners with OpenAI to build AI‑powered legal intake system",
+    "why_it_matters": "By automating the intake and knowledge‑retrieval steps, AT&T’s lawyers can focus more on legal judgment and less on gathering information, which could improve the speed and quality of legal support for the business."
   }
 ]
