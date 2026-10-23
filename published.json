@@ -1145,5 +1145,17 @@
     "summary": "AT&T’s in‑house legal team is working with OpenAI to create a new system that uses natural language intake to classify and prioritize legal requests. The system will link requests to relevant precedent, research, and past work, giving lawyers a ready‑made context and suggested next steps. The goal is to make legal advice faster and more consistent across the company.",
     "title": "AT&T partners with OpenAI to build AI‑powered legal intake system",
     "why_it_matters": "By automating the intake and knowledge‑retrieval steps, AT&T’s lawyers can focus more on legal judgment and less on gathering information, which could improve the speed and quality of legal support for the business."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-22T22:24:34+00:00",
+    "reason": "The article reports a new training tool and method with measurable results, suitable for publication.",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+    "status": "official",
+    "summary": "Microsoft and Hugging Face released ThinkingBox-Training, a method that uses database state checks as rewards to fine‑tune agents. The technique improved Qwen3.8‑27B’s repeatable success from 51.7% to 60.8% after 50 GRPO steps, and increased tasks solved on all attempts from 38 to 107. The training pool is built from tasks that are still hard for the base model, making the reward signal useful.",
+    "title": "ThinkingBox-Training turns database checks into RL rewards for agents",
+    "why_it_matters": "Developers can now train agents that are more reliable on real‑world database tasks. It shows a practical way to turn existing grading data into reinforcement signals, potentially improving safety and consistency of AI assistants."
   }
 ]
