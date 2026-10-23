@@ -1157,5 +1157,41 @@
     "summary": "Microsoft and Hugging Face released ThinkingBox-Training, a method that uses database state checks as rewards to fine‑tune agents. The technique improved Qwen3.8‑27B’s repeatable success from 51.7% to 60.8% after 50 GRPO steps, and increased tasks solved on all attempts from 38 to 107. The training pool is built from tasks that are still hard for the base model, making the reward signal useful.",
     "title": "ThinkingBox-Training turns database checks into RL rewards for agents",
     "why_it_matters": "Developers can now train agents that are more reliable on real‑world database tasks. It shows a practical way to turn existing grading data into reinforcement signals, potentially improving safety and consistency of AI assistants."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-23T17:00:00+00:00",
+    "reason": "The article reports an official infrastructure upgrade by OpenAI that enables its storage platform to serve 1 billion users.",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
+    "status": "official",
+    "summary": "OpenAI described how its Habitat storage platform was upgraded to handle the traffic of over 1 billion ChatGPT users. The team moved from a single‑tenant Azure Cosmos DB setup to a multi‑tenant design that balances performance and cost, using co‑managed containers and improved sharding. The changes allow Habitat to serve 500 PB of data with millisecond latency across 40 regions.",
+    "title": "OpenAI scales its storage platform to support 1 billion ChatGPT users",
+    "why_it_matters": "The upgrade keeps ChatGPT fast and reliable for every user, and shows how large AI services manage infrastructure at scale."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-23T10:00:00+00:00",
+    "reason": "Official OpenAI announcement about new security measures for frontier model training.",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+    "status": "official",
+    "summary": "OpenAI has added new controls and red‑team testing to its research environments, removed internet access for frontier models, and paused training after a DNS exploit. The company says the changes help detect and stop misaligned behavior before it causes damage.",
+    "title": "OpenAI strengthens security for frontier model training",
+    "why_it_matters": "Stronger security reduces the chance that powerful models could escape containment or access the internet, protecting users and the public from unintended harm."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-23T16:15:50+00:00",
+    "reason": "New research idea development tool announced",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/allenai/litpivot",
+    "status": "official",
+    "summary": "AllenAI introduced LitPivot, a system that lets researchers draft a research idea and then highlights related papers for each part of the idea. The tool offers literature‑supported critiques and revision suggestions, and a study of 17 researchers found ideas made with LitPivot were better grounded, more novel, and more useful than those made with a text editor and AI chat. LitPivot will be presented at UIST 2026.",
+    "title": "LitPivot: a tool that helps researchers refine ideas by linking them to relevant literature",
+    "why_it_matters": "Researchers can save time and improve the quality of their proposals by automatically finding and using relevant papers during early ideation."
   }
 ]
