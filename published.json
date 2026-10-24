@@ -1193,5 +1193,29 @@
     "summary": "AllenAI introduced LitPivot, a system that lets researchers draft a research idea and then highlights related papers for each part of the idea. The tool offers literature‑supported critiques and revision suggestions, and a study of 17 researchers found ideas made with LitPivot were better grounded, more novel, and more useful than those made with a text editor and AI chat. LitPivot will be presented at UIST 2026.",
     "title": "LitPivot: a tool that helps researchers refine ideas by linking them to relevant literature",
     "why_it_matters": "Researchers can save time and improve the quality of their proposals by automatically finding and using relevant papers during early ideation."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-23T20:19:55+00:00",
+    "reason": "The article reports an official policy change by Google that may affect user privacy.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/gadgets/2026/10/updated-google-privacy-policy-says-your-gmail-might-be-used-for-advertising/",
+    "status": "official",
+    "summary": "Google updated its privacy policy on Oct 16, removing a clause that said Gmail, Drive, and Photos data would not be used for ad personalization. The new wording allows data shared through Personal Intelligence to potentially inform ads in AI tools. Google says ads will not be based directly on Gmail content, but the data may still influence ad targeting.",
+    "title": "Google privacy policy update may let Gmail data be used for ads",
+    "why_it_matters": "Users could see ads that reflect their Gmail content when using AI features, raising privacy concerns."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-23T00:00:00+00:00",
+    "reason": "The article reports a new tool and dataset from Hugging Face that lets users check if models run on AWS Trainium.",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/torch-neuronx-model-support",
+    "status": "official",
+    "summary": "Hugging Face introduced TorchNeuron, a native PyTorch backend for AWS Trainium, and a Space that lists which popular Transformers models run unmodified on Trainium. The Space shows details such as the number of Trainium cores used, run time, and memory, and provides scripts to run the models. The results are stored in a public dataset that can be queried directly.",
+    "title": "TorchNeuron lets you run Transformers models on AWS Trainium",
+    "why_it_matters": "Developers can quickly see if a Hugging Face model works on AWS Trainium, helping them choose hardware for faster inference."
   }
 ]
