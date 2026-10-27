@@ -1277,5 +1277,48 @@
     "summary": "Google Research and the Stanford Accelerator for Learning have released “Polar Peaks,” the third AI Quest in the series. The quest lets students ages 11‑14 explore neuroscience by scanning and mapping brain neurons, and it includes training modules for teachers.",
     "title": "Google launches new AI Quest to map the human brain",
     "why_it_matters": "It gives young learners a hands‑on way to understand AI and its role in science, while teaching them to use AI responsibly."
+  },
+  {
+    "decision": "needs_review",
+    "reason": "article text not available",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/ai/2026/10/boston-dynamics-employees-want-to-block-sale-of-robot-dogs-to-ice/",
+    "title": "ICE plan to buy robot dogs spurs protest from hundreds of Boston Dynamics employees"
+  },
+  {
+    "category": "Industry and funding",
+    "decision": "publish",
+    "published": "2026-10-26T14:30:27+00:00",
+    "reason": "The article reports Tesla’s strategic shift to focus on autonomous driving and software, including a potential merger with SpaceX, which is relevant industry news.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/cars/2026/10/tesla-wants-ai-and-software-to-be-its-next-profit-engine/",
+    "status": "official",
+    "summary": "Tesla is moving away from being the world’s largest electric‑vehicle maker and instead wants to make money from AI and software. The company is pushing its Full Self‑Driving system, which now has 1.7 million active subscriptions, and is exploring a merger with SpaceX to speed up autonomous‑driving research.",
+    "title": "Tesla shifts focus from EV sales to autonomous driving and software",
+    "why_it_matters": "Software and AI can give Tesla higher margins than selling cars, so this shift could change how the company earns money and compete with Chinese rivals."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-26T14:30:00+00:00",
+    "reason": "OpenAI announced a new process for releasing AI research with academic collaborations.",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
+    "status": "official",
+    "summary": "OpenAI said it will release three new scientific results—one in mathematics, one in computer science, and one in physics—by partnering with external academic groups. The math result will be made public, the CS result will be shared with a collaborative group that will also publish the AI output, and the physics result will be handled entirely by the external group. The approach stresses transparency, no academic credit for OpenAI, recognition for the collaborators, and voluntary, unpaid participation.",
+    "title": "OpenAI announces new collaboration model for releasing AI research",
+    "why_it_matters": "It shows how AI companies can share breakthroughs responsibly and involve experts to explain and validate them, which can increase trust and help the wider scientific community understand AI-generated results."
+  },
+  {
+    "category": "Research",
+    "decision": "publish",
+    "published": "2026-10-26T10:00:00+00:00",
+    "reason": "New data release for researchers",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/chatgpt-expanding-world-of-work",
+    "status": "official",
+    "summary": "OpenAI has released OpenAI Signals data that tracks how users employ ChatGPT for 165 work activities across nearly 100 countries. The data, covering the first quarter of 2025 to the third quarter of 2026, links usage to Intermediate Work Activities categories from O*NET, allowing researchers to compare AI use with occupational tasks and study differences over time and across nations.",
+    "title": "OpenAI releases data on how people use ChatGPT for work",
+    "why_it_matters": "The dataset lets scholars and policymakers examine AI’s influence on labor markets, identify which jobs benefit most, and guide decisions about training, regulation, and business strategy."
   }
 ]
