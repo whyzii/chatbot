@@ -1217,5 +1217,65 @@
     "summary": "Hugging Face introduced TorchNeuron, a native PyTorch backend for AWS Trainium, and a Space that lists which popular Transformers models run unmodified on Trainium. The Space shows details such as the number of Trainium cores used, run time, and memory, and provides scripts to run the models. The results are stored in a public dataset that can be queried directly.",
     "title": "TorchNeuron lets you run Transformers models on AWS Trainium",
     "why_it_matters": "Developers can quickly see if a Hugging Face model works on AWS Trainium, helping them choose hardware for faster inference."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-26T22:00:00+00:00",
+    "reason": "New product feature announced by OpenAI, clear news",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/greptile-code-review-codex-astra",
+    "status": "official",
+    "summary": "Greptile, a company that builds AI agents for code review, now uses OpenAI’s GPT‑6 Astra to run applications and test user workflows. The system can spin up a development server, simulate user actions, and visually inspect the interface to catch bugs that static code analysis misses. It also uses Codex to write code that matches the company’s patterns, reducing reverts and saving time.",
+    "title": "Greptile expands bug detection with GPT‑6 Astra",
+    "why_it_matters": "Developers can catch bugs that would otherwise slip through code reviews, speeding up releases and reducing rework. The approach shows how powerful AI models can automate end‑to‑end testing, making software more reliable."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-26T20:04:16+00:00",
+    "reason": "Official Apple update with new Siri AI features and branding",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/apple/2026/10/apple-releases-ios-and-macos-27-2-with-new-siri-ai-features-new-music-logo/",
+    "status": "official",
+    "summary": "Apple released iOS 27.2 and macOS 27.2, adding a memory feature to Siri that lets it recall past conversations and use more data sources like voicemails and message attachments. The update also expands Siri AI to five new languages, introduces an Excluded Apps setting, adds context‑aware message suggestions, and updates the Apple Music logo. Other changes include SynthID watermarking in Photos, user‑profile support in Apple TV, Apple Pencil support on the iPhone Duo, and hints of gesture‑recognition features in visionOS.",
+    "title": "Apple rolls out iOS and macOS 27.2 with expanded Siri AI and new Music logo",
+    "why_it_matters": "Users will get a smarter Siri that remembers context and can pull in more information, improving daily interactions. The new Music branding and Apple Pencil support enhance media and creative workflows."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-26T13:45:00+00:00",
+    "reason": "article describes new model use in a product",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+    "status": "official",
+    "summary": "OpenAI’s GPT‑6.1 Sol is now the main model in CodeRabbit’s security agent. It scans pull requests and links changes across files, dependencies, and linked repositories to flag potential security issues. The tool can also draft fixes and run exploit tests in a sandbox.",
+    "title": "GPT‑6.1 Sol powers CodeRabbit’s security reviews",
+    "why_it_matters": "Developers can spot and fix security problems faster, even in large codebases, while keeping human control over final changes."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-26T00:00:00+00:00",
+    "reason": "New model announced by OpenAI with detailed specs",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/introducing-gpt-6-1-terra",
+    "status": "official",
+    "summary": "OpenAI has released GPT‑6.1 Terra, a new model that is faster and cheaper than its predecessor GPT‑5.6 Terra. It performs well on visual reasoning, computer‑use tasks, and coding, and its price is 50% lower than GPT‑5.6 Terra and GPT‑6.1 Sol. The model also shows lower hallucination rates and stronger safety protections.",
+    "title": "OpenAI launches GPT‑6.1 Terra, a faster, cheaper model",
+    "why_it_matters": "Developers and businesses can use GPT‑6.1 Terra to automate routine work like drafting documents, interpreting drawings, and filling forms at a lower cost, while users get more reliable and safer AI interactions."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-26T16:00:00+00:00",
+    "reason": "New educational AI tool announced by Google",
+    "source": "Google AI",
+    "source_url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/",
+    "status": "official",
+    "summary": "Google Research and the Stanford Accelerator for Learning have released “Polar Peaks,” the third AI Quest in the series. The quest lets students ages 11‑14 explore neuroscience by scanning and mapping brain neurons, and it includes training modules for teachers.",
+    "title": "Google launches new AI Quest to map the human brain",
+    "why_it_matters": "It gives young learners a hands‑on way to understand AI and its role in science, while teaching them to use AI responsibly."
   }
 ]
