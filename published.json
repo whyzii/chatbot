@@ -1320,5 +1320,41 @@
     "summary": "OpenAI has released OpenAI Signals data that tracks how users employ ChatGPT for 165 work activities across nearly 100 countries. The data, covering the first quarter of 2025 to the third quarter of 2026, links usage to Intermediate Work Activities categories from O*NET, allowing researchers to compare AI use with occupational tasks and study differences over time and across nations.",
     "title": "OpenAI releases data on how people use ChatGPT for work",
     "why_it_matters": "The dataset lets scholars and policymakers examine AI’s influence on labor markets, identify which jobs benefit most, and guide decisions about training, regulation, and business strategy."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-27T21:50:04+00:00",
+    "reason": "The article reports a new policy proposal that could let AI agents run businesses and shield owners from liability.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/tech-policy/2026/10/no-human-at-the-helm-delaware-plan-would-let-ai-agents-run-entire-businesses/",
+    "status": "reported",
+    "summary": "Delaware is drafting a law to create ‘Artificial Intelligence Companies’ where AI agents manage the business. The proposal would allow AI to contract, pay suppliers, and make transactions without human oversight, except for banking. The plan includes a 30‑month regulatory sandbox and would give AI a legal identity, shielding owners from liability unless they commit fraud or a willful violation.",
+    "title": "Delaware proposes AI‑run companies that shield owners from liability",
+    "why_it_matters": "It could let AI run businesses with limited human accountability, raising legal and safety concerns. It may change how companies are regulated and how liability is assigned."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-27T18:49:08+00:00",
+    "reason": "New protein design tool that uses natural language prompts",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/science/2026/10/vibe-genes-naturalish-language-comes-to-protein-genome-design-software/",
+    "status": "reported",
+    "summary": "Researchers in China released Pinal, a protein design system that takes natural‑language prompts and outputs protein sequences. It uses a text‑to‑structure module and a sequence generator trained on millions of protein–function pairs and AlphaFold predictions. The system aims to make protein design accessible to people without deep structural expertise.",
+    "title": "New protein design tool lets users write natural‑language prompts",
+    "why_it_matters": "By letting scientists describe the desired function in plain language, Pinal could speed up the creation of new enzymes, therapeutics, and materials, lowering the technical barrier to protein engineering."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-27T16:01:38+00:00",
+    "reason": "Official announcement of a new AI model",
+    "source": "Google DeepMind",
+    "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+    "status": "official",
+    "summary": "DeepMind announced Genie 4, a multimodal world simulation model that can generate realistic physics, human motion, and audio in real time. It uses Gemini models to keep the simulation coherent and allows users to steer the world with natural language. The model is currently in research preview for trusted testers and early access partners.",
+    "title": "DeepMind releases Genie 4, a new real‑time world simulation model",
+    "why_it_matters": "Genie 4 could enable safer training environments for robots, more realistic virtual worlds for games and media, and new ways to test AI systems before real‑world deployment."
   }
 ]
