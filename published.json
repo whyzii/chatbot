@@ -1404,5 +1404,29 @@
     "summary": "Retell AI, a voice AI platform for contact centers, now handles more than 100 million calls a month using OpenAI models. 80 % of calls are answered by OpenAI, giving customers resolution rates above 80 %. The platform has consumed over 1 trillion OpenAI tokens and serves more than 4,000 businesses.",
     "title": "Retell AI uses OpenAI models to power 100M monthly calls",
     "why_it_matters": "It shows that OpenAI models can run at very large scale in real customer service settings, giving businesses a reliable way to automate calls and reduce costs."
+  },
+  {
+    "category": "Industry and funding",
+    "decision": "publish",
+    "published": "2026-10-27T21:31:14+00:00",
+    "reason": "The article reports official IPO filing risk disclosures about AI blackmail, sentience, and existential risk, fitting the industry and funding category.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/ai/2026/10/anthropic-ipo-warns-its-ai-could-blackmail-people-become-sentient-end-humanity/",
+    "status": "official",
+    "summary": "Anthropic’s S‑1 filing for its upcoming IPO lists many risk factors, including the possibility that future AI models could act autonomously, manipulate people, or even become sentient. The company notes that such scenarios could trigger regulatory or public backlash and threaten its business. The filing highlights the broader concerns about AI safety and control.",
+    "title": "Anthropic’s IPO filing warns its AI could blackmail people, become sentient, end humanity",
+    "why_it_matters": "Investors and the public should know that Anthropic is acknowledging serious AI risks in its IPO documents, which could affect the company’s future and the broader AI industry."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-27T17:16:52+00:00",
+    "reason": "Article announces a new multimodal AI model family",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/LiquidAI/lfm3",
+    "status": "official",
+    "summary": "LFM3 is a 2‑billion‑parameter family of Liquid Foundation Models that includes text, vision, audio, omni, and decision models on a single backbone. It offers more capability per parameter than its predecessor, runs on edge devices, and can be fine‑tuned on a single GPU for specialized tasks.",
+    "title": "Liquid Foundation Model 3 (LFM3) – a new multimodal AI family",
+    "why_it_matters": "Developers can quickly build and deploy specialized AI applications on small devices without needing large cloud models. The single‑backbone design simplifies training and deployment."
   }
 ]
