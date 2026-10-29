@@ -1356,5 +1356,53 @@
     "summary": "DeepMind announced Genie 4, a multimodal world simulation model that can generate realistic physics, human motion, and audio in real time. It uses Gemini models to keep the simulation coherent and allows users to steer the world with natural language. The model is currently in research preview for trusted testers and early access partners.",
     "title": "DeepMind releases Genie 4, a new real‑time world simulation model",
     "why_it_matters": "Genie 4 could enable safer training environments for robots, more realistic virtual worlds for games and media, and new ways to test AI systems before real‑world deployment."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-28T17:00:58+00:00",
+    "reason": "Official announcement of a new AI model with measurable performance gains",
+    "source": "Google DeepMind",
+    "source_url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
+    "status": "official",
+    "summary": "DeepMind announced Gemini 4 Carbon, a new frontier model that outperforms previous models in coding, agentic, and cybersecurity tasks. It tops recent AI benchmarks, especially in vulnerability detection, exploitation, and patching, and will be released gradually to trusted partners before wider availability. It costs the same as the earlier Argon model.",
+    "title": "Gemini 4 Carbon: DeepMind’s new AI model for secure coding and long‑horizon tasks",
+    "why_it_matters": "The model can help developers write safer code and find bugs faster, improving software security. It also shows AI’s growing ability to handle complex, multi‑step engineering problems."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-28T14:58:17+00:00",
+    "reason": "article describes a new NVIDIA model and data pipeline, with official release details",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+    "status": "official",
+    "summary": "NVIDIA has released Nemotron 3.5 Transcribe, an open‑weight model that can transcribe speech in 40 languages, translate 31 of them, and attribute up to eight speakers. It also offers a Granary v2 data pipeline for fine‑tuning and can be prompted with natural language to produce different outputs such as speaker‑labelled transcripts or translations. The model tops several open‑weight benchmarks on transcription and speaker attribution.",
+    "title": "NVIDIA releases Nemotron 3.5 Transcribe, a multilingual transcription model with speaker attribution and translation",
+    "why_it_matters": "The model lets developers build multilingual voice tools that can identify speakers and translate on the fly, useful for meetings, medical dictation, and live classes. Its open‑weight nature and fine‑tuning support mean it can run locally or be adapted to specific vocabularies."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-28T09:30:00+00:00",
+    "reason": "The article reports a new product launch by Legora, a legal AI tool using OpenAI models.",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/legora",
+    "status": "official",
+    "summary": "Legora, a Stockholm startup, has released a platform that uses OpenAI models and coding agents to help legal teams review contracts faster. The company says its system cuts time spent on NDAs by more than 95% and speeds contract turnaround for a Fortune 100 client by 90%.",
+    "title": "Legora launches an AI‑powered operating system for legal work",
+    "why_it_matters": "If the claims hold, lawyers could save hours each week and companies could cut legal costs, making legal services more efficient and affordable."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-27T15:00:00+00:00",
+    "reason": "Real announcement from OpenAI about Retell AI platform using OpenAI models at scale",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/retell-ai",
+    "status": "official",
+    "summary": "Retell AI, a voice AI platform for contact centers, now handles more than 100 million calls a month using OpenAI models. 80 % of calls are answered by OpenAI, giving customers resolution rates above 80 %. The platform has consumed over 1 trillion OpenAI tokens and serves more than 4,000 businesses.",
+    "title": "Retell AI uses OpenAI models to power 100M monthly calls",
+    "why_it_matters": "It shows that OpenAI models can run at very large scale in real customer service settings, giving businesses a reliable way to automate calls and reduce costs."
   }
 ]
