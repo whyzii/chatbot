@@ -1524,5 +1524,41 @@
     "summary": "Google’s AI Mode avoided answering who won the 2020 U.S. presidential election, instead directing users to official sources. The evasive response came after social‑media complaints, and similar indirect answers were found for other recent elections.",
     "title": "Google AI Mode gives evasive answers about 2020 election winner",
     "why_it_matters": "Users expect quick, accurate answers from AI. Evasive replies can undermine trust and raise concerns about bias or censorship."
+  },
+  {
+    "category": "Tools and products",
+    "decision": "publish",
+    "published": "2026-10-30T17:57:24+00:00",
+    "reason": "Demonstrates use of NVIDIA Nemotron models in a new interactive project",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+    "status": "reported",
+    "summary": "A developer built an interactive Halloween projection called MonsterHouse that uses NVIDIA Nemotron Voice Agent, Speech, Bolt E4B, Magpie TTS, and Audio2Face-3D to listen to visitors, generate grumpy pirate‑style replies, and animate a wooden garage door mouth. The system runs on a single workstation and showcases how the Nemotron models can create local, self‑contained AI experiences.",
+    "title": "NVIDIA Nemotron models power a haunted house projection",
+    "why_it_matters": "It shows developers how to combine NVIDIA’s Nemotron tools to build engaging, offline AI applications, making advanced conversational and animation capabilities accessible on modest hardware."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-30T16:53:49+00:00",
+    "reason": "Real DOJ crackdown on AI‑enabled student‑loan fraud",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/tech-policy/2026/10/doj-exposes-ghost-students-using-ai-to-complete-courses-steal-student-loans/",
+    "status": "official",
+    "summary": "The Department of Justice charged five people in a scheme that used stolen U.S. identities and AI to complete coursework and collect student loans. The crackdown uncovered more than 830,000 fake aid accounts, about $130 million in potential losses, and seized over $750,000 in cryptocurrency linked to Kenyan nationals.",
+    "title": "US DOJ cracks down on AI‑powered student‑loan fraud by fake students",
+    "why_it_matters": "It shows how AI can help run large‑scale fraud that steals taxpayer money and harms victims, underscoring the need for stronger fraud detection and protection of personal data."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-30T09:00:00+00:00",
+    "reason": "Official announcement from OpenAI about new safety report and teen protections",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
+    "status": "official",
+    "summary": "OpenAI announced a new Community Safety Report that will detail how its AI models detect and respond to violent content, and it will publish the first report in early 2027. The company also added stricter limits on firearms and weapons information for users under 18, and will automatically end chats that show warning signs of violence. These steps aim to reduce the risk of AI being used to plan or encourage violent acts.",
+    "title": "OpenAI releases community safety report and tighter teen protections",
+    "why_it_matters": "Users, parents, and educators can see how OpenAI is working to keep teens safe from harmful content and how the company is cooperating with law enforcement to prevent violence."
   }
 ]
