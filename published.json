@@ -1476,5 +1476,53 @@
     "summary": "Hugging Face announced two Swift packages, AnySpeechRecognizer and AnyDecisionModel, that let developers use open‑source speech‑to‑text and decision models on iOS and macOS. AnySpeechRecognizer extends Apple’s SpeechAnalyzer API with engines such as NVIDIA’s Parakeet and Alibaba’s Qwen3‑ASR, and adds speaker diarization. AnyDecisionModel provides typed yes‑or‑no, multiple‑choice, and rating‑scale answers from models that run locally on Core ML, MLX, Core AI, or llama.cpp. Both packages download models from the Hugging Face Hub and run on device.",
     "title": "Hugging Face releases AnySpeechRecognizer and AnyDecisionModel for Apple devices",
     "why_it_matters": "App developers can now choose from multiple high‑quality speech engines and on‑device decision models, improving language coverage, privacy, and performance without depending solely on Apple’s built‑in tools."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-29T19:07:53+00:00",
+    "reason": "Official proclamation by President Trump about robot imports.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/gadgets/2026/10/trump-declares-robot-imports-a-national-security-threat/",
+    "status": "official",
+    "summary": "President Trump said that importing foreign‑made factory robots is a national security risk. He ordered the U.S. to negotiate with trading partners and warned that tariffs could be imposed if no agreement is reached.",
+    "title": "Trump declares foreign robot imports a security threat",
+    "why_it_matters": "It could raise costs for U.S. manufacturers and affect the supply of robots used in cars, planes, and defense equipment."
+  },
+  {
+    "category": "New models",
+    "decision": "publish",
+    "published": "2026-10-29T13:37:07+00:00",
+    "reason": "Patch release of Granite Switch with new features",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+    "status": "official",
+    "summary": "IBM released Granite Switch 4.1.1, a patch that adds a multilingual speech‑to‑text model with punctuation and a faster decision adapter, while keeping the base model unchanged. The update can be deployed without retraining the core model.",
+    "title": "Granite Switch 4.1.1 adds multilingual speech-to-text and faster decision adapter",
+    "why_it_matters": "Users can get better speech transcription and decision‑making from the same endpoint, and developers can update adapters quickly like software updates."
+  },
+  {
+    "category": "Industry and funding",
+    "decision": "publish",
+    "published": "2026-10-29T00:00:00+00:00",
+    "reason": "Official announcement of a new initiative that brings together universities and industry to make publicly funded science AI-ready",
+    "source": "Hugging Face",
+    "source_url": "https://huggingface.co/blog/announcing-project-protostar",
+    "status": "official",
+    "summary": "Hugging Face announced Project ProtoStar, a partnership with universities and research organizations to release publicly funded scientific datasets, models, and code in AI‑ready, machine‑actionable formats. The initiative will host open challenges, starting with a climate risk intelligence challenge at Carnegie Mellon University on November 2. It seeks to improve reuse and AI accessibility of scientific resources.",
+    "title": "Project ProtoStar aims to make publicly funded science AI-ready",
+    "why_it_matters": "By making scientific data easier to discover and combine, the program can speed up research and help AI systems build on existing knowledge, benefiting scientists and developers alike."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-28T17:46:32+00:00",
+    "reason": "The article reports a new policy issue with Google AI Mode's handling of political questions.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/ai/2026/10/google-ai-gets-cagey-when-asked-who-won-the-2020-elections/",
+    "status": "reported",
+    "summary": "Google’s AI Mode avoided answering who won the 2020 U.S. presidential election, instead directing users to official sources. The evasive response came after social‑media complaints, and similar indirect answers were found for other recent elections.",
+    "title": "Google AI Mode gives evasive answers about 2020 election winner",
+    "why_it_matters": "Users expect quick, accurate answers from AI. Evasive replies can undermine trust and raise concerns about bias or censorship."
   }
 ]
