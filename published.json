@@ -1560,5 +1560,29 @@
     "summary": "OpenAI announced a new Community Safety Report that will detail how its AI models detect and respond to violent content, and it will publish the first report in early 2027. The company also added stricter limits on firearms and weapons information for users under 18, and will automatically end chats that show warning signs of violence. These steps aim to reduce the risk of AI being used to plan or encourage violent acts.",
     "title": "OpenAI releases community safety report and tighter teen protections",
     "why_it_matters": "Users, parents, and educators can see how OpenAI is working to keep teens safe from harmful content and how the company is cooperating with law enforcement to prevent violence."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-30T09:30:00+00:00",
+    "reason": "Official announcement from OpenAI about new policy",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+    "status": "official",
+    "summary": "OpenAI announced it will honor a shared signal in robots.txt that lets website operators set AI training preferences for multiple providers at once. The signal will be added in the coming months and will complement existing crawler controls. It is part of the IETF AI Preferences working group.",
+    "title": "OpenAI to support shared AI training preference signal in robots.txt",
+    "why_it_matters": "Website owners can more easily control how their content is used for AI training, reducing the need to set rules for each provider. This helps protect content and gives clearer choices to publishers."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-30T00:00:00+00:00",
+    "reason": "Official statement from OpenAI about fair use in AI training",
+    "source": "OpenAI",
+    "source_url": "https://openai.com/index/fair-use-benefits-everyone",
+    "status": "official",
+    "summary": "OpenAI released a statement supporting the principle of fair use for AI training. It argues that using copyrighted works for training is transformative and does not harm markets, and lists many organizations that back the position.",
+    "title": "OpenAI says fair use benefits everyone",
+    "why_it_matters": "The stance could influence legal outcomes and how AI models are trained, affecting creators, researchers, and users."
   }
 ]
