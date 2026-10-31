@@ -1584,5 +1584,41 @@
     "summary": "OpenAI released a statement supporting the principle of fair use for AI training. It argues that using copyrighted works for training is transformative and does not harm markets, and lists many organizations that back the position.",
     "title": "OpenAI says fair use benefits everyone",
     "why_it_matters": "The stance could influence legal outcomes and how AI models are trained, affecting creators, researchers, and users."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-30T21:09:54+00:00",
+    "reason": "Real security incident with potential impact on developers",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/",
+    "status": "reported",
+    "summary": "An official Anthropic VS Code extension was compromised with a malicious version 2.1.313 that was posted to the Cursor marketplace. The backdoored extension could install a persistent SSH backdoor on Windows, macOS, and Linux, potentially affecting up to 5,000 users. Anthropic has not yet warned customers.",
+    "title": "Anthropic VS Code extension backdoored, up to 5,000 developers at risk",
+    "why_it_matters": "Developers using the extension could unknowingly expose their code and systems to attackers. The incident highlights the risk of supply‑chain attacks in AI developer tools."
+  },
+  {
+    "category": "Policy and safety",
+    "decision": "publish",
+    "published": "2026-10-30T20:40:13+00:00",
+    "reason": "The article reports a real event with clear implications for AI policy in academia.",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/tech-policy/2026/10/dartmouths-provost-warned-us-about-ai-cheating-but-his-own-ai-use-cost-him-his-job/",
+    "status": "reported",
+    "summary": "Dartmouth College provost Santiago Schnell resigned after a university committee found he used AI tools to edit and revise his academic papers and op‑ed without disclosing that use. The committee said Schnell did not provide full logs or cooperate fully, and that his AI use was not properly reported to journals or the university.",
+    "title": "Dartmouth provost resigns after failing to disclose AI use",
+    "why_it_matters": "The case highlights the need for clear rules about AI disclosure in research and teaching, and shows that leaders can face serious consequences for not following them."
+  },
+  {
+    "category": "Industry and funding",
+    "decision": "publish",
+    "published": "2026-10-30T17:38:19+00:00",
+    "reason": "Real announcement of investment and production increase",
+    "source": "Ars Technica",
+    "source_url": "https://arstechnica.com/gadgets/2026/10/fujifilm-to-boost-tape-production-5x-as-ai-fuels-archiving-demand/",
+    "status": "official",
+    "summary": "Fujifilm said it will spend about 10 billion yen to raise its magnetic‑tape output five times. The move is driven by the huge data growth from generative AI and will focus on the latest LTO Ultrium10 tape.",
+    "title": "Fujifilm to boost tape production five‑fold as AI drives archiving demand",
+    "why_it_matters": "More tape lets companies back up the massive amounts of data AI creates, at lower cost and with extra security."
   }
 ]
